@@ -1,0 +1,73 @@
+.button-wrapper {
+  display: flex;
+  align-items: start;
+  position: relative;
+  cursor: pointer;
+  .button-container {
+    background-color: $bg-black;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    transition: 0.3s ease-in-out all;
+    height: 2rem;
+    margin: 0;
+    width: 100%;
+    &.bottom-left-radius {
+      border-bottom-left-radius: 1rem;
+    }
+    &.bottom-right-radius {
+      border-bottom-right-radius: 1rem;
+    }
+    &.top-left-radius {
+      border-top-left-radius: 1rem;
+    }
+    &.top-right-radius {
+      border-top-right-radius: 1rem;
+    }
+    span{
+      max-width: 8.5rem;
+    }
+    .arrow {
+      width: 2rem;
+      height: auto;
+      margin-left: 10px;
+    }
+  }
+  &:hover {
+    .button-container {
+      padding: 1rem 4rem;
+      transition: 0.3s ease-in-out all;
+    }
+  }
+  .over-top-left-angle {
+    transform: rotate(180deg);
+    top: -1rem;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+  }
+  .under-bottom-left-angle {
+    transform: rotate(270deg);
+    bottom: -1rem;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+  }
+  .over-top-right-angle {
+    transform: rotate(90deg);
+    top: -1rem;
+    right: 1rem;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+  }
+  .under-bottom-right-angle {
+    bottom: -4rem;
+    right: 1rem;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+  }
+}

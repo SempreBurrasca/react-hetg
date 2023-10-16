@@ -1,0 +1,9 @@
+.plus-icon{
+    width: 2rem;
+    height: auto;
+    transition: .3s ease-in-out all;
+    &:hover{
+        transform: rotate(45deg);
+        transition: .2s ease-in-out all;
+    }
+}

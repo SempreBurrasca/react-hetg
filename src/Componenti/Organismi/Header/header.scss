@@ -1,0 +1,48 @@
+#top-frame{
+    height: 1rem;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $bg-black;
+}
+#left-frame{
+    width: 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $bg-black;
+}
+#bottom-frame{
+    height: 1rem;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: $bg-black;
+}
+#right-frame{
+    width: 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: $bg-black;
+}
+#bottom-right-angle{
+    width:1rem;
+    height: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    transform: rotate(90deg);
+}
+#bottom-left-angle{
+    width:1rem;
+    height: 1rem;
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    transform: rotate(180deg);
+}

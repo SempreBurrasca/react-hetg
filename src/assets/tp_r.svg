@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13.96" height="13.96" viewBox="0 0 13.96 13.96">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rettangolo_1" data-name="Rettangolo 1" width="13.96" height="13.96" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="tp-r" transform="translate(13.96) rotate(90)">
+    <g id="Raggruppa_1" data-name="Raggruppa 1" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <path id="Tracciato_1" data-name="Tracciato 1" d="M13.96,0H0V13.96A19.352,19.352,0,0,1,13.96,0" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+main {
+  min-height: 100vh;
+  .hero-section {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
+    grid-template-rows: repeat(5, 1fr);
+
+    h1 {
+      grid-column: 2 / 8; // Posiziona h1 dalla 2ª alla 7ª colonna
+      grid-row: 2/4;
+      align-self: start; // Allinea h1 in alto
+      color: $white;
+    }
+
+    p {
+      grid-column: 9 / 12; // Posiziona p dalla 9ª alla 11ª colonna
+      grid-row: 4/5;
+      align-self: end; // Allinea p in basso
+      text-align: right; // Allinea il testo di p a destra
+      color: $white;
+    }
+  }
+
+  &#discovery-hub {
+    .hero-section {
+      background-image: url("../assets/bg-home.png");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  #about-section {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
+    grid-template-rows: repeat(5, 1fr);
+    background-image: linear-gradient(to bottom, black 0%, #95354C 20%, #95354C 20%);
+
+
+    h2 {
+      grid-column: 2 / 4; // Posiziona h1 dalla 2ª alla 7ª colonna
+      grid-row: 2/4;
+      align-self: start; // Allinea h1 in alto
+      color: $white;
+    }
+
+    p {
+      grid-column: 10 / 12; // Posiziona p dalla 9ª alla 11ª colonna
+      grid-row: 4/5;
+      align-self: end; // Allinea p in basso
+      text-align: right; // Allinea il testo di p a destra
+      color: $white;
+    }
+  }
+}
