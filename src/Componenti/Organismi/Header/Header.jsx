@@ -1,8 +1,9 @@
-import "./header.scss";
+
 import ComponentAngle from "../../../assets/tp_r.svg";
 import { Logo } from "./Logo";
 import { Nav } from "./Nav";
 import { Button } from "../../Molecole/Buttons/Button";
+import "./header.scss";
 export function Header() {
   return (
     <>
@@ -18,7 +19,7 @@ export function Header() {
         //manca da fare la funzione di callback al botton
       }
       <Button
-        style={{ position: "fixed", top: "1rem", right: 0 }}
+        style={{ position: "fixed", top: "1rem", right: 0, zIndex: 5 }}
         angleposition={{
           topLeft: true,
           bottomLeft: false,
@@ -26,6 +27,7 @@ export function Header() {
           bottomRight: false,
         }}
         borderradius="bottom-left-radius"
+        path="contattaci"
       >
         Contattaci ora
       </Button>

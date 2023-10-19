@@ -37,8 +37,12 @@
           padding: 0;
           margin: 1rem;
           li {
-            margin: 0 0.8rem;
+            margin: 0 1.2rem;
             color: $white;
+            font-size: small;
+            span{
+              font-size: x-small;
+            }
           }
         }
       }

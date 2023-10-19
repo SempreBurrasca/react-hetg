@@ -1,24 +1,79 @@
-span{
-    &.menu{
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+body{
+  font-family: 'Gabarito', sans-serif;
+}
+
+strong{
+  font-weight: 900;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  i{
+    font-size: 4rem;
+    text-decoration: none;
+    font-style: normal;
+
+  }
+}
+.page-subtitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+
+span {
+  &.menu {
     font-size: 1.61rem;
     text-transform: uppercase;
-}
-}
-.menu-item{
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.cta-button{
-    font-size: 1rem;
-    text-transform: uppercase;
     font-weight: bold;
+    
+  }
 }
-.page-title{
-    font-size: 6rem;
+.menu-item {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.cta-button {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+h2{
+  
+  text-transform: uppercase;
+}
+.section-title{
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+.section-subtitle{
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.card-content {
+  h3 {
     font-weight: bold;
     text-transform: uppercase;
-}
-.page-subtitle{
-    font-size: 1rem;
+    font-size: 1.6rem;
+  }
+  p {
     text-transform: uppercase;
+  }
+}
+.striscia{
+    span{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+.txt-white{
+  color: $white!important;
 }

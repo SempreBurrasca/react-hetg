@@ -1,0 +1,20 @@
+.partners-logo {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  align-items: center;
+  min-height: 35vh;
+  grid-column: 1/13;
+  background-color: $bg-black-light;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  img {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 10rem;
+    height: auto;
+  }
+}

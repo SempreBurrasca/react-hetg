@@ -1,6 +1,7 @@
 .logo-wrapper {
   padding: 1rem;
   position: fixed;
+  z-index: 5;
   cursor: pointer;
   transition: 0.3s ease-in-out all;
   .logo-container {

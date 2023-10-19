@@ -1,0 +1,63 @@
+.carousel-wrapper-hor {
+  max-height: 100vh;
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  .staff-card {
+    height: 35vh;
+    width: 35vh;
+    min-height: 35vh;
+    background-image: url("../../../assets/bg-facolta.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+    border: 1rem $bg-black solid;
+    border-radius: 1rem;
+    .staff-cta {
+        position: relative;
+        background-color: $bg-black;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 0;
+        transition: 0.3s ease-in-out all;
+        height: 2rem;
+        border-top-right-radius: 1rem;
+        transform-origin: top left;
+        transform: rotate(-90deg);
+        top: 35vh;
+        right: -29vh;
+        width: 250px;
+        cursor: pointer;
+        .arrow {
+          width: 2rem;
+          height: auto;
+          margin-left: 1rem;
+          transition: 0.3s ease-in-out all;
+        }
+        &:hover{
+            width: 35vh;
+            .arrow {
+                transform: rotate(90deg);
+                transition: 0.3s ease-in-out all;
+              }
+        }
+      }
+      
+  }
+   // Nascondi la scrollbar
+   &::-webkit-scrollbar {
+    display: none;
+}
+scrollbar-width: none; // per Firefox
+
+// Cambia il cursore al trascinamento
+cursor: grab;
+
+// Cambia il cursore quando si trascina
+&:active {
+    cursor: grabbing;
+}
+}

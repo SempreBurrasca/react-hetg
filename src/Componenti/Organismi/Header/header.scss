@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     background-color: $bg-black;
+    z-index: 5;
 }
 #left-frame{
     width: 1rem;
@@ -13,6 +14,7 @@
     top: 0;
     left: 0;
     background-color: $bg-black;
+    z-index: 5;
 }
 #bottom-frame{
     height: 1rem;
@@ -21,6 +23,7 @@
     bottom: 0;
     left: 0;
     background-color: $bg-black;
+    z-index: 5;
 }
 #right-frame{
     width: 1rem;
@@ -29,6 +32,7 @@
     top: 0;
     right: 0;
     background-color: $bg-black;
+    z-index: 5;
 }
 #bottom-right-angle{
     width:1rem;
@@ -37,6 +41,7 @@
     bottom: 1rem;
     right: 1rem;
     transform: rotate(90deg);
+    z-index: 5;
 }
 #bottom-left-angle{
     width:1rem;
@@ -45,4 +50,5 @@
     left: 1rem;
     bottom: 1rem;
     transform: rotate(180deg);
+    z-index: 5;
 }

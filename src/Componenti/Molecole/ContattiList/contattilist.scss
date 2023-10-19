@@ -1,0 +1,40 @@
+.contatti-wrapper {
+    grid-column: 7/11;
+    grid-row: 3;
+    max-height: 30vh;
+    overflow-y: auto;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      h4 {
+        color: $magenta;
+        text-align: end;
+        margin: 0.5rem;
+      }
+      span {
+        color: $magenta;
+        text-align: end;
+      }
+      .divider {
+        background-color: $magenta;
+        height: 2px;
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+    // Nascondi la scrollbar verticale
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none; // per Firefox
+
+    // Cambia il cursore al trascinamento
+    cursor: grab;
+
+    // Cambia il cursore quando si trascina
+    &:active {
+      cursor: grabbing;
+    }
+  }
