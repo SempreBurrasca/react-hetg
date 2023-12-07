@@ -1,0 +1,64 @@
+#corsi-sezione {
+  display: flex;
+  flex-direction: column;
+  .row {
+    display: flex;
+    @media (max-width: 1000px) {
+      flex-direction: column-reverse;
+    }
+    .black-row {
+      background: $bg-black-light;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      border-top-right-radius: 1rem;
+      padding: 3rem 4rem;
+      min-height: 15vh;
+      align-items: center;
+      color: $white !important;
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+    .white-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 3rem 4rem;
+      h2 {
+        text-transform: uppercase;
+        font-size: xx-large;
+        text-align: center;
+      }
+    }
+  }
+
+  .black-row-2 {
+    background: $bg-black-light;
+    display: flex;
+    flex-direction: column;
+    .row {
+      padding: 3rem 4rem;
+      color: $white !important;
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .plus-row {
+    grid-column: 1/13;
+    grid-row: 3;
+    background: $bg-black-light;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
+    grid-template-rows: auto;
+    min-height: 10vh;
+    align-items: start;
+    padding-bottom: 3rem;
+  }
+}

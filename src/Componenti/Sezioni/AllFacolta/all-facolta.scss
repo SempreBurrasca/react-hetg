@@ -1,0 +1,36 @@
+#all-facolta-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8rem;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    padding: 0 6rem;
+  }
+  .list-facolta {
+    cursor: pointer;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  a {
+    color: $magenta;
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+    &:hover {
+      font-size: large;
+    }
+  }
+  .divider-red {
+    background-color: $magenta;
+    height: 2px;
+    width: 90%;
+    margin: 1rem;
+  }
+}

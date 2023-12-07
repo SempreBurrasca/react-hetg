@@ -1,22 +1,55 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import ComponentAngle from "../../../assets/tp_r.svg";
 import "./nav.scss";
-export function Nav() {
+export function Nav(props) {
+  const { copy, links } = props;
   const navigate = useNavigate();
   return (
     <>
       <div className="nav-wrapper">
         <img className="top-left-angle" src={ComponentAngle} />
         <div className="nav-container">
-          <span className="menu">MENù</span>
+          <span className="menu">{copy.header[7]}</span>
           <div className="menu">
             <ul>
-              <li className="menu-item" onClick={()=>navigate("/")}>Discovery Hub</li>
-              <li className="menu-item" onClick={()=>navigate("/academic-avenues")}>Academic Avenues</li>
-              <li className="menu-item" onClick={()=>navigate("/student-central")}>Student Central</li>
-              <li className="menu-item" onClick={()=>navigate("/legacy-lane")}>Legacy Lane</li>
-              <li className="menu-item" onClick={()=>navigate("/gateway-growth")}>Gateway <span>to</span> Growth</li>
-              <li className="menu-item" onClick={()=>navigate("/#")}>Accedi alla piattaforma</li>
+              <li className="menu-item" onClick={() => navigate("/")}>
+                {copy.header[0]}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() => navigate("/academic-avenues")}
+              >
+                {copy.header[1]}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() => navigate("/student-central")}
+              >
+                {copy.header[2]}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() => navigate("/legacy-lane")}
+              >
+                {copy.header[3]}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() => navigate("/gateway-growth")}
+              >
+                {copy.header[4]}{" "}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() =>
+                  navigate("/student-central/staff-management")
+                }
+              >
+                {copy.header[9]}
+              </li>
+              <li className="menu-item" onClick={() => navigate("/linktree")}>
+                {copy.header[5]}
+              </li>
             </ul>
           </div>
         </div>

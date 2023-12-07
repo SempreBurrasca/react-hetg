@@ -1,0 +1,89 @@
+{
+    "it": {
+      "hero": [
+        "UNICAMPUS HETG",
+        "ARTES AD VITAM",
+        "L'UniCampus telematico Dove il tuo percorso incontra il futuro, senza barriere di tempo o spazio.",
+        "Inizia il tuo viaggio"
+      ],
+      "about": [
+        "Telematica, innovativa, flessibile: realizza sogni accademici senza confini.",
+        "Nel cuore digitale di Ginevra, UniCampus HETG emerge come un baluardo di innovazione e tradizione. Guidata dalla visione del Prof. Antonino Galloni, la nostra missione è chiara: abbattere le barriere dell’istruzione tradizionale, offrendo a imprenditori e leader la possibilità di realizzare sogni accademici rimasti in sospeso. Telematica, ma profondamente radicata nella prestigiosa eredità accademica svizzera, HETG rappresenta il futuro dell’educazione senza confini. Scopri di più sulla nostra storia in legacy lane",
+        "Visita legacy lane ora"
+      ],
+      "advantages": [
+        "Naviga nel Futuro: I Vantaggi del Campus Digitale HETG",
+        "porte aperte 24/7",
+        "Studia a tuo ritmo, accedendo a corsi e risorse 24 ore su 24, 7 giorni su 7, ovunque tu sia.",
+        "connessioni globali",
+        "Entra in una rete mondiale, collaborando e interagendo con studenti e docenti da ogni parte del globo.",
+        "Apprendimento Immersivo",
+        "Vivi un’educazione avanzata con simulazioni, laboratori virtuali e sessioni interattive che stimolano la tua curiosità."
+      ],
+      "academics": [
+        "ACADEMIC AVENUES",
+        "IL TUO ITINERARIO VERSO L’ECCELLENZA DOVE LA TRADIZIONE ACCADEMICA SVIZZERA INCONTRA L’INNOVAZIONE DEL DOMANI.",
+        "Riscopri L’alta formazione: Realizza il Tuo Sogno Accademico con HETG.",
+        "L’offerta formativa di HETG spazia da lauree triennali e magistrali, a master di primo e secondo livello, fino ai prestigiosi dottorati di ricerca.",
+        "Orientamento"
+      ]
+    },
+    "en": {
+      "hero": [
+        "UNICAMPUS HETG:",
+        "ARTES AD VITAM",
+        "The online university where your path meets the future, with no barriers of time or space.",
+        "Start your journey"
+      ],
+      "about": [
+        "Telematic, innovative, flexible: realize academic dreams without borders.",
+        "In the digital heart of Geneva, the HETG UniCampus emerges as a bastion of innovation and tradition. Guided by the vision of Prof. Antonino Galloni, our mission is clear: to break down the barriers of traditional education, offering entrepreneurs and leaders the opportunity to realize academic dreams that have been put on hold. Telematic, yet deeply rooted in the prestigious Swiss academic heritage, HETG represents the future of borderless education. Discover more about our story on legacy lane",
+        "Visit legacy lane now"
+      ],
+      "advantages": [
+        "Navigate the Future: The Advantages of the HETG Digital Campus",
+        "open doors 24/7",
+        "Study at your own pace, accessing courses and resources 24/7, wherever you are.",
+        "global connections",
+        "Enter a global network, collaborating and interacting with students and professors from every corner of the globe.",
+        "Immersive Learning",
+        "Experience advanced education with simulations, virtual labs, and interactive sessions that stimulate your curiosity."
+      ],
+      "academics": [
+        "ACADEMIC AVENUES",
+        "YOUR PATHWAY TOWARDS EXCELLENCE WHERE SWISS ACADEMIC TRADITION MEETS THE INNOVATION OF TOMORROW.",
+        "Rediscover higher education: Realize Your Academic Dream with HETG.",
+        "HETG's educational offerings range from bachelor's and master's degrees to first and second level masters, up to prestigious PhDs.",
+        "Orientation"
+      ]
+    },
+    "fr": {
+      "hero": [
+        "UNICAMPUS HETG:",
+        "ARTES AD VITAM",
+        "L'université en ligne où votre chemin rencontre l'avenir, sans barrières de temps ou d'espace.",
+        "Commencez votre voyage"
+      ],
+      "about": [
+        "Télématic, innovante, flexible : réalisez des rêves académiques sans frontières.",
+        "Au cœur numérique de Genève, l'UniCampus HETG émerge comme un bastion d'innovation et de tradition. Guidés par la vision du Prof. Antonino Galloni, notre mission est claire : abattre les barrières de l'éducation traditionnelle, offrant aux entrepreneurs et aux leaders l'opportunité de réaliser des rêves académiques en suspens. Télématic, mais profondément ancrée dans le prestigieux héritage académique suisse, HETG représente l'avenir de l'éducation sans frontières. Découvrez plus sur notre histoire dans la voie de l'héritage",
+        "Visitez la voie de l'héritage maintenant"
+      ],
+      "advantages": [
+        "Naviguez dans le Futur : Les Avantages du Campus Numérique HETG",
+        "portes ouvertes 24/7",
+        "Étudiez à votre rythme, en accédant aux cours et ressources 24h/24 et 7j/7, où que vous soyez.",
+        "connexions mondiales",
+        "Entrez dans un réseau mondial, en collaborant et en interagissant avec des étudiants et des professeurs de tous les coins du globe.",
+        "Apprentissage Immersif",
+        "Vivez une éducation avancée avec des simulations, des laboratoires virtuels et des sessions interactives qui stimulent votre curiosité."
+      ],
+      "academics": [
+        "AVENUES ACADÉMIQUES",
+        "VOTRE ITINÉRAIRE VERS L'EXCELLENCE OÙ LA TRADITION ACADÉMIQUE SUISSE RENCONTRE L'INNOVATION DE DEMAIN.",
+        "Redécouvrez l'enseignement supérieur : Réalisez Votre Rêve Académique avec HETG.",
+        "L'offre de formation de HETG s'étend des licences et masters aux masters de premier et second niveau, jusqu'aux prestigieux doctorats.",
+        "Orientation"
+      ]
+    }
+  }

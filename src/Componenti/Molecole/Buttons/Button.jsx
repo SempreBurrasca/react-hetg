@@ -1,14 +1,19 @@
 import arrow_right from "../../../assets/arrow-right.png";
 import ComponentAngle from "../../../assets/tp_r.svg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import "./button.scss";
 export function Button(props) {
-  const { angleposition, borderradius, path } = props;
+  const { angleposition, borderradius, path, isExternal } = props;
   const navigate = useNavigate();
-  const handleNavigate = ()=>{
-    navigate("/"+path)
-  }
+  const handleNavigate = () => {
+    if (!isExternal) {
+      console.log(path);
+      navigate("/" + path);
+    } else {
+      window.open(path)
+    }
+  };
   return (
     <>
       {
@@ -27,7 +32,10 @@ export function Button(props) {
         {angleposition.underBottomLeft && (
           <img className="under-bottom-left-angle" src={ComponentAngle} />
         )}
-        <div className={borderradius + " button-container"} onClick={handleNavigate}>
+        <div
+          className={borderradius + " button-container"}
+          onClick={handleNavigate}
+        >
           <span className="cta-button">{props.children}</span>
           <img className="arrow" src={arrow_right} />
         </div>

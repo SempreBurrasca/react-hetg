@@ -26,8 +26,7 @@
     &.top-right-radius {
       border-top-right-radius: 1rem;
     }
-    span{
-      max-width: 8.5rem;
+    span {
     }
     .arrow {
       width: 2rem;
@@ -69,5 +68,17 @@
     position: relative;
     width: 1rem;
     height: 1rem;
+  }
+  @media (max-width: 1000px) {
+
+    .button-container {
+      width: auto;
+      span {
+        max-width:initial;
+      }
+      .arrow{
+        width: 1.2rem;
+      }
+    }
   }
 }

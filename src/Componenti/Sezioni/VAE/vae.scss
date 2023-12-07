@@ -1,0 +1,30 @@
+#vae-sezione {
+  display: flex;
+  flex-direction: column;
+  .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem;
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      padding: 2rem;
+    }
+    h2 {
+      margin: 0;
+    }
+    p {
+      text-align: end;
+      align-self: center;
+    }
+  }
+  .row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    .plus-icon {
+      height: 2rem;
+      width: auto;
+    }
+  }
+}

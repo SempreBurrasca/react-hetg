@@ -1,0 +1,36 @@
+{
+    "it": {
+      "hero": [
+        "academic avenues:",
+        "dove la conoscenza incontra la passione",
+        "Esplora le nostre facoltà, corsi e opportunità uniche di apprendimento.",
+        "esplora il portale"
+      ],
+      "academics": [
+        "Orientamento"
+      ]
+    },
+    "en": {
+      "hero": [
+        "Academic Avenues:",
+        "where knowledge meets passion",
+        "Explore our faculties, courses, and unique learning opportunities.",
+        "explore the portal"
+      ],
+      "academics": [
+        "Guidance"
+      ]
+    },
+    "fr": {
+      "hero": [
+        "Voies Académiques:",
+        "où la connaissance rencontre la passion",
+        "Explorez nos facultés, cours et opportunités d'apprentissage uniques.",
+        "explorez le portail"
+      ],
+      "academics": [
+        "Orientation"
+      ]
+    }
+  }
+  

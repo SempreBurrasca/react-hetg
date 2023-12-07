@@ -1,0 +1,138 @@
+#single-facolta {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/bg-home.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+      h1 {
+        &.page-title {
+          font-size: 45px;
+          text-align: center;
+          margin-top: 6rem;
+          align-self: center;
+          text-shadow: 1px 2px 2px black;
+          @media (max-width: 1000px) {
+            font-size: 25px;
+          }
+
+          i {
+            font-size: 30px;
+            @media (max-width: 1000px) {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+      p {
+        text-align: center;
+        align-self: center;
+        padding: 0 50px;
+        text-shadow: 1px 2px 2px black;
+      }
+  }
+
+  #info-section {
+    padding: 4rem;
+    @media (max-width: 1000px) {
+      padding: 2rem;
+    }
+    .content {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      padding: 0 4rem;
+      @media (max-width: 1000px) {
+        padding: 0;
+      }
+      h2 {
+        max-width: 300px;
+        &.page-title{
+          text-align: start;
+          align-self: start;
+          font-size: larger;
+        }
+      }
+      p {
+        align-self: end;
+        max-width: 500px;
+        text-align: end;
+        @media (max-width: 1000px) {
+          align-self: start;
+          max-width: 500px;
+          text-align: start;
+        }
+        &.page-subtitle{
+          text-align: start;
+          align-self: start;
+        }
+      }
+    }
+  }
+ 
+}
+.staff-wrapp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.staff-card {
+  height: 25vh;
+  width: 25vh;
+  min-height: 25vh;
+  background-image: url("../../../assets/bg-facolta.png");
+  background-size: cover;
+  background-position: center;
+  margin-top: 1rem;
+  border: 1rem $bg-black solid;
+  border-radius: 1rem;
+  align-self: end;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  span {
+    position: relative;
+    margin: auto;
+    font-size: smaller;
+    text-align: center;
+  }
+  .staff-cta {
+    position: relative;
+    background-color: $bg-black;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0.5rem;
+    transition: 0.3s ease-in-out all;
+    height: 2rem;
+    border-top-right-radius: 1rem;
+    width: 80%;
+    @media (max-width: 1000px) {
+    }
+    cursor: pointer;
+    .arrow {
+      width: 1rem;
+      height: auto;
+      margin-left: 1rem;
+      transition: 0.3s ease-in-out all;
+    }
+    &:hover {
+      width: 100%;
+      border-top-right-radius: 0;
+      @media (max-width: 1000px) {
+        width: 250px;
+      }
+      .arrow {
+        transform: rotate(-90deg);
+        transition: 0.3s ease-in-out all;
+      }
+    }
+  }
+}

@@ -1,9 +1,15 @@
 .carousel-wrapper-hor {
   max-height: 100vh;
+  flex: 1;
   display: flex;
   overflow-x: auto;
   flex-wrap: nowrap;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    max-height: none;
+    flex: .5;
+    flex-direction: row;
+  }
   .staff-card {
     height: 35vh;
     width: 35vh;
@@ -14,7 +20,20 @@
     margin-top: 1rem;
     border: 1rem $bg-black solid;
     border-radius: 1rem;
+    align-self: end;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    h5{
+      position: relative;
+      margin: auto;
+      font-size: medium;
+      max-width: 20vh;
+      text-align: center;
+    }
     .staff-cta {
+
         position: relative;
         background-color: $bg-black;
         color: $white;
@@ -25,11 +44,9 @@
         transition: 0.3s ease-in-out all;
         height: 2rem;
         border-top-right-radius: 1rem;
-        transform-origin: top left;
-        transform: rotate(-90deg);
-        top: 35vh;
-        right: -29vh;
         width: 250px;
+        @media (max-width: 1000px) {
+        }
         cursor: pointer;
         .arrow {
           width: 2rem;
@@ -39,8 +56,12 @@
         }
         &:hover{
             width: 35vh;
+            border-top-right-radius: 0;
+            @media (max-width: 1000px) {
+              width: 250px;
+            }
             .arrow {
-                transform: rotate(90deg);
+                transform: rotate(-90deg);
                 transition: 0.3s ease-in-out all;
               }
         }

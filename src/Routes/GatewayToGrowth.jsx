@@ -1,14 +1,36 @@
+import React, { useEffect } from "react";
 import { Button } from "../Componenti/Molecole/Buttons/Button";
 import { PlusIcon } from "../Componenti/Molecole/PlusIcon/PlusIcon";
 import { Striscia } from "../Componenti/Molecole/Striscia/Striscia";
-import { CoursesCarousel } from "../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-import { coursessData, partnersData } from "../assets/data";
-
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Componenti/Organismi/Loader/Loader";
+import { VAE } from "../Componenti/Sezioni/VAE/VAE";
+import { CorsiSezione } from "../Componenti/Sezioni/CorsiSezione/CorsiSezione";
+import { OrientamentoSezione } from "../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
 import "./gateway-growth.scss";
-
 export function GatewayToGrowth() {
   const navigate = useNavigate();
+  const [copy, setCopy] = React.useState(null);
+  useEffect(() => {
+    fetch("/copy/gatewaytogrowth.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
+        setCopy(data.it);
+      })
+      .catch((error) => {
+        console.error("Error fetching the copy data:", error);
+      });
+  }, []);
+
+  if (!copy) {
+    return <Loader />;
+  }
   return (
     <main id="gateway-growth">
       <section className="hero-section">
@@ -16,13 +38,10 @@ export function GatewayToGrowth() {
         <PlusIcon style={{ gridColumn: 7, gridRow: 2 }} />
         <PlusIcon style={{ gridColumn: 11, gridRow: 2, justifySelf: "end" }} />
         <h1 className="page-title">
-          <i>Gateway To Growth:</i>{" "}
-          <strong>Il tuo prossimo passo insieme a HETG</strong>
+          <strong>{copy.hero[0]}</strong>
+          <br /> <i>{copy.hero[1]}</i>
         </h1>
-        <p className="page-subtitle">
-          Tutto ciò che devi sapere per iniziare il tuo viaggio accademico con
-          noi.
-        </p>
+        <p className="page-subtitle">{copy.hero[2]}</p>
         <PlusIcon style={{ gridColumn: 5, gridRow: 4, alignSelf: "center" }} />
         <PlusIcon style={{ gridColumn: 9, gridRow: 4, alignSelf: "center" }} />
         <Button
@@ -34,34 +53,25 @@ export function GatewayToGrowth() {
           borderradius="bottom-right-radius top-right-radius"
           path="contattaci"
         >
-          Accedi al portale
+          {copy.hero[3]}
         </Button>
       </section>
       <section id="about-section">
         <PlusIcon style={{ gridColumn: 7, gridRow: 2 }} />
         <PlusIcon style={{ gridColumn: 11, gridRow: 2, justifySelf: "end" }} />
-        <h2>Trova la Tua Strada, Illumina il Tuo Futuro con HETG.</h2>
+        <h2>{copy.about[0]}</h2>
         <p>
-          <strong>Come Iscriversi a HETG:</strong>
+          <strong>{copy.about[1]}</strong>
           <br />
-          Iniziare il tuo percorso accademico con HETG è un processo semplice e
-          diretto.
+          {copy.about[2]}
           <br /> <br />
-          <strong> Scegli il Tuo Corso:</strong> <br />
-          Naviga nella sezione Academic Avenues e esplora la vasta gamma di
-          corsi e programmi che offriamo. Che tu sia interessato alle scienze,
-          alle arti, alla tecnologia o a qualsiasi altro campo, troverai
-          sicuramente il corso che fa per te. <br /> <br />
-          <strong>Inoltra il Form di Ammissione:</strong>
-          <br /> Una volta scelto il corso, vai alla pagina di ammissione e
-          compila il form di ammissione online. Assicurati di fornire tutte le
-          informazioni richieste e di allegare eventuali documenti necessari.{" "}
+          <strong>{copy.about[3]}</strong> <br />
+          {copy.about[4]} <br /> <br />
+          <strong>{copy.about[5]}</strong>
           <br />
-          Ecco fatto! Una volta inviato il form, il nostro team di ammissioni
-          esaminerà la tua richiesta e ti contatterà per i prossimi passi. Se
-          hai domande o hai bisogno di ulteriori informazioni durante il
-          processo, non esitare a contattarci. Siamo qui per aiutarti in ogni
-          fase del tuo viaggio con HETG.
+          {copy.about[6]}
+          <br />
+          {copy.about[7]}
         </p>
         <PlusIcon style={{ gridColumn: 2, gridRow: 5 }} />
         <PlusIcon style={{ gridColumn: 7, gridRow: 5 }} />
@@ -74,141 +84,19 @@ export function GatewayToGrowth() {
           borderradius="bottom-left-radius top-left-radius"
           path="ammissione"
         >
-          Vai al form di ammissione
+          {copy.about[8]}
         </Button>
-        <h3 className="second">
-          Sei ancora indeciso sul percorso da intraprendere?
-        </h3>
-        <p className="second">
-          Capita a tutti. Ma non preoccuparti, HETG è qui per aiutarti a
-          scoprire la tua vera passione. Visita la nostra sezione Academic
-          Avenues e immergiti nell’ampia gamma di facoltà che offriamo. Ogni
-          facoltà è un mondo di opportunità, conoscenze e sfide.
-        </p>
+       {/* <h3 className="second">{copy.about[9]}</h3>
+        <p className="second">{copy.about[10]}</p>*/}
       </section>
 
       <Striscia />
-      <section id="orientamento-section">
-        <h2>naviga l'orientamento HETG</h2>
-        <p>
-          Non sei sicuro di quale percorso sia il migliore per te? Lascia che ti
-          guidiamo. L’orientamento HETG è stato progettato per aiutarti a
-          scoprire e a comprendere meglio le tue opzioni accademiche.
-        </p>
-        <Button
-          style={{ gridRow: 3, gridColumn: "6/8" }}
-          borderradius="bottom-left-radius top-left-radius bottom-right-radius top-right-radius"
-          path="orientamento"
-          angleposition={{ overTopRight: false, underBottomRight: false }}
-        >
-          Orientamento
-        </Button>
-      </section>
+      <OrientamentoSezione />
       <Striscia />
 
-      <section id="vae-section">
-        <h2>
-          Nel cuore della visione di HETG, la Valutazione Accademica
-          dell’Esperienza (VAE) emerge come un pilastro fondamentale.
-        </h2>
-        <p>
-          Riconoscendo che l’apprendimento e la crescita possono avvenire al di
-          fuori delle tradizionali aule universitarie, la VAE celebra e
-          valorizza le esperienze lavorative e professionali dei candidati.
-        </p>
-        <PlusIcon
-          isRed
-          style={{
-            gridColumn: 2,
-            gridRow: "2",
-            alignSelf: "center",
-            margin: "2rem 0",
-          }}
-        />
-        <PlusIcon
-          isRed
-          style={{
-            gridColumn: 4,
-            gridRow: "2",
-            alignSelf: "center",
-            margin: "2rem 0",
-          }}
-        />
-        <PlusIcon
-          isRed
-          style={{
-            gridColumn: 9,
-            gridRow: "2",
-            alignSelf: "center",
-            margin: "2rem 0",
-          }}
-        />
-        <PlusIcon
-          isRed
-          style={{
-            gridColumn: 11,
-            gridRow: "2",
-            alignSelf: "center",
-            margin: "2rem 0",
-          }}
-        />
-        <Button
-          style={{ position: "relative", gridRow: 3, gridColumn: "10/13" }}
-          angleposition={{
-            overTopRight: true,
-            underBottomRight: true,
-          }}
-          borderradius="bottom-left-radius top-left-radius"
-          path="vae-form"
-        >
-          Valuta la tua esperienza
-        </Button>
-      </section>
-   
-      <section id="corsi-section">
-        <div className="black-row">
-          <p>
-            Nel mondo in rapida evoluzione di oggi, l’apprendimento continuo è
-            la chiave per rimanere al passo con le innovazioni e le tendenze
-            emergenti. Ecco perché HETG ha creato l’Academy: una selezione
-            esclusiva di corsi di specializzazione progettati per offrirti le
-            competenze più richieste nel mercato del lavoro attuale.
-            <br />
-            Ogni corso Academy è stato curato da esperti del settore e pensato
-            per offrire un’esperienza di apprendimento flessibile e
-            approfondita. E la parte migliore? Non è necessaria alcuna
-            ammissione. Sei libero di esplorare e acquistare i corsi che
-            rispondono alle tue esigenze e interessi, studiando al tuo ritmo,
-            nel comfort della tua casa o ovunque tu scelga.
-            <br />
-            Che tu sia un professionista che cerca di aggiornare le sue
-            competenze, un appassionato di un particolare argomento o
-            semplicemente curioso di esplorare nuovi orizzonti, l’Academy di
-            HETG ti offre l’opportunità di crescere e prosperare. Immergiti in
-            un mondo di conoscenza senza barriere e inizia oggi il tuo viaggio
-            di specializzazione.
-          </p>
-        </div>
-        <div className="white-row">
-          <h2 className="section-title">
-            Specializzati con Academy: La Tua Aula, Il Tuo Ritmo
-          </h2>
-        </div>
-        <div className="black-row-2">
-          <Button
-            style={{ position: "relative", gridRow: 1, gridColumn: "10/13" }}
-            angleposition={{
-              overTopRight: true,
-              underBottomRight: true,
-            }}
-            borderradius="bottom-left-radius top-left-radius"
-            path="academic-avenues/academy-courses"
-          >
-            Scopri tutti gli Academy Courses
-          </Button>
-        </div>
-        <CoursesCarousel partners={coursessData} />
-      </section>
+      <VAE />
+
+      <CorsiSezione />
       <div className="divider" />
     </main>
   );

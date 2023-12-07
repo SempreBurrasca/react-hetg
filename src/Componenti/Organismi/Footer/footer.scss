@@ -7,6 +7,7 @@
     grid-column: 1;
     grid-row: 1;
     width: 200px;
+
   }
 footer {
   min-height: 25vh;
@@ -16,8 +17,17 @@ footer {
   align-items: center;
   color: $magenta;
   font-weight: bold;
+  z-index: 1206;
   
-
+  .logo-footer{
+    width: 150px;
+    height: auto;
+grid-column: 7;
+grid-row: 2;
+margin: 15px;
+align-self: center;
+justify-self: center;
+  }
   .follow-social {
     grid-column: 2;
     grid-row: 2;
@@ -83,6 +93,39 @@ footer {
     span{
       font-size: small;
       font-weight: 400;
+    }
+  }
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    .follow-social{
+    }
+    .plus-icon{
+      display: none;
+    }
+    .div-red-m{
+      height: 2px;
+      background-color: $magenta;
+      width: 80%;
+      border-radius: 1rem;
+      margin: 1rem 0;
+    }
+    .link-footer-m{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 2rem;
+      align-items: center;
+      justify-content: center;
+      span{
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin-right: 15px;
+        margin-top: 10px;
+      }
+    }
+    .legals-footer{
+      padding: 1rem 2rem;
     }
   }
 }

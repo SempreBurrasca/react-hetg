@@ -1,0 +1,129 @@
+form {
+    display: flex;
+    flex-direction: column;
+    grid-column: 7/11;
+    align-items: end;
+    grid-row: 2;
+    label,
+    a {
+      text-transform: uppercase;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      margin: 0.5rem 0;
+      width: 100%;
+      padding: 0.5rem;
+      border: 3px solid $magenta; // magenta
+      background-color: white;
+      color: $dark-blu;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      min-height: 2rem;
+
+      &:focus {
+        border-color: darken($magenta, 10%);
+        outline: none;
+      }
+    }
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+
+    a {
+      color: $magenta;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    button {
+      margin-top: 1rem;
+      background-color: $magenta; // magenta
+      color: $white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: flex-end;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        background-color: darken($magenta, 10%);
+      }
+    }
+  }
+  @media (max-width:1000px){
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+      label,
+      a {
+        text-transform: uppercase;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        margin: 0.4rem 0;
+        padding: 0.4rem;
+        border: 2px solid $magenta; // magenta
+        background-color: white;
+        color: $dark-blu;
+        border-radius: 0.5rem;
+        font-size: 0.7rem;
+        transition: border-color 0.3s;
+        font-family: "Gabarito", sans-serif;
+
+        &:focus {
+          border-color: darken($magenta, 10%);
+          outline: none;
+        }
+      }
+      textarea {
+        resize: vertical;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
+
+      a {
+        color: $magenta;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      button {
+        margin-top: 1rem;
+        background-color: $magenta; // magenta
+        color: $white;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-end;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+          background-color: darken($magenta, 10%);
+        }
+      }
+    }
+  }

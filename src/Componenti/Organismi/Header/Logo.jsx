@@ -11,12 +11,12 @@ export function Logo() {
       <div className="logo-wrapper">
         <div className="logo-container">
           <div className="tot-wrapper" onClick={()=>navigate("/")}>
-            <img id="logo-tot" src={LogoTot} />
-            <img id="logo-icon" src={LogoBreve} />
+            <img id="logo-tot" src={LogoTot} alt="Logo di HETG"/>
+            <img id="logo-icon" src={LogoBreve}  alt="Logo di HETG" />
           </div>
         </div>
-        <img className="top-right-angle" src={ComponentAngle} />
-        <img className="bottom-left-angle" src={ComponentAngle} />
+        <img className="top-right-angle" src={ComponentAngle}  alt="Logo di HETG"/>
+        <img className="bottom-left-angle" src={ComponentAngle}  alt="Logo di HETG"/>
       </div>
     </>
   );

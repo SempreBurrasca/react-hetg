@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import arrow_right from "../../../assets/arrow-right.png";
 import { useNavigate } from "react-router-dom";
 import "./facultycarousel.scss";
+import { getFacoltas } from "../../../Firebase/RecuperoCopy";
+import { Button } from "../../Molecole/Buttons/Button";
 export function FacultyCarousel(props) {
   const carouselRef = React.useRef(null);
   const [isDragging, setIsDragging] = React.useState(false);
   const [startPos, setStartPos] = React.useState(0);
   const [scrollLeft, setScrollLeft] = React.useState(0);
+  const [faculties, setFaculties] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (faculties.length < 1) {
+      const fetchFaculties = async () => {
+        try {
+          const data = await getFacoltas();
+          setFaculties(data); // Assumi che 'data' sia un array di oggetti facoltà
+        } catch (error) {
+          console.error("Failed to fetch faculties", error);
+        }
+      };
+
+      fetchFaculties();
+    }
+  }, [faculties]);
+
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartPos(e.clientX);
@@ -41,70 +60,22 @@ export function FacultyCarousel(props) {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
-        <div className="faculty-card">
-          <div className="faculty-cta">
-            <span
-              className="cta-button"
-              onClick={() => navigate("/facolta/journey-to-arts")}
-            >
-              journey to arts
-            </span>
-            <img className="arrow" src={arrow_right} />
-          </div>
-        </div>
-        <div className="faculty-card">
-          <div className="faculty-cta">
-            <span
-              className="cta-button"
-              onClick={() => navigate("/facolta/journey-to-arts")}
-            >
-              journey to arts
-            </span>
-            <img className="arrow" src={arrow_right} />
-          </div>
-        </div>
-        <div className="faculty-card">
+        {faculties.map((faculty) => (
           <div
-            className="faculty-cta"
-            onClick={() => navigate("/facolta/journey-to-arts")}
+            key={faculty.id}
+            className="faculty-card"
+            style={{ backgroundImage: "url(" + faculty.imageUrl + ")" }}
           >
-            <span className="cta-button">journey to arts</span>
-            <img className="arrow" src={arrow_right} />
-          </div>
-        </div>
-        <div className="faculty-card">
-          <div className="faculty-cta">
-            <span
-              className="cta-button"
-              onClick={() => navigate("/facolta/journey-to-arts")}
+            <h4 className="card-title">{faculty.nome}</h4>
+            <div
+              className="faculty-cta"
+              onClick={() => navigate(`/facolta/${faculty.id}`)} // Assumi che ogni facoltà abbia uno 'slug' univoco
             >
-              journey to arts
-            </span>
-            <img className="arrow" src={arrow_right} />
+              <span className="cta-button">{faculty.soprannome}</span>
+              <img className="arrow" src={arrow_right} alt="Arrow Right" />
+            </div>
           </div>
-        </div>
-        <div className="faculty-card">
-          <div className="faculty-cta">
-            <span
-              className="cta-button"
-              onClick={() => navigate("/facolta/journey-to-arts")}
-            >
-              journey to arts
-            </span>
-            <img className="arrow" src={arrow_right} />
-          </div>
-        </div>
-        <div className="faculty-card">
-          <div className="faculty-cta">
-            <span
-              className="cta-button"
-              onClick={() => navigate("/facolta/journey-to-arts")}
-            >
-              journey to arts
-            </span>
-            <img className="arrow" src={arrow_right} />
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

@@ -10,11 +10,51 @@
     display: none;
   }
 
-  img {
+  .corso-card {
     margin-right: 1rem;
     margin-left: 1rem;
     cursor: pointer;
-    width: 15rem;
-    height: auto;
+    border: .6rem solid $bg-black;
+    border-radius: 1rem;
+    background-position: center;
+    background-size: cover;
+    background-color: $magenta;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    h5{
+      text-align: center;// Imposta una larghezza massima per il testo per forzare l'andare a capo
+      overflow-wrap: break-word;
+      color: $white;
+    }
+    .corso-cta {
+      background-color: $bg-black;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      transition: 0.3s ease-in-out all;
+      border-radius: 1rem;
+      width: 10rem; // Fissa la larghezza del contenitore
+      white-space: normal; // Permette al testo di andare a capo
+      
+      span {
+        max-width: 8rem; // Imposta una larghezza massima per il testo per forzare l'andare a capo
+        overflow-wrap: break-word; // Assicura che le parole vadano a capo se necessario
+      }
+      
+      .arrow {
+        width: 2rem;
+        height: auto;
+        margin-left: 10px;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    padding: 1.6rem 0;
   }
 }

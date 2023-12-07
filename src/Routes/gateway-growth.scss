@@ -1,32 +1,17 @@
 main {
-  min-height: 100vh;
-  .hero-section {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-  }
+
 
   &#gateway-growth {
     .hero-section {
-      background-image: url("../assets/bg-home.png");
+      background-image: url("../assets/bg-gateway.png");
       background-size: cover;
       background-position: center;
       grid-template-rows: auto;
-    }
-    h1 {
-      grid-column: 2 / 8; // Posiziona h1 dalla 2ª alla 7ª colonna
-      grid-row: 3/4;
-      align-self: start; // Allinea h1 in alto
-      color: $white;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
     }
 
-    p {
-      grid-column: 10 / 12; // Posiziona p dalla 9ª alla 11ª colonna
-      grid-row: 4;
-      align-self: center; // Allinea p in basso
-      text-align: right; // Allinea il testo di p a destra
-      color: $white;
-    }
 
     #about-section {
       display: grid;
@@ -62,6 +47,7 @@ main {
         text-align: right; // Allinea il testo di p a destra
         color: $white;
         font-size: 1rem;
+        padding: 1rem;
         strong {
           font-weight: 600;
           font-size: 1.2rem;
@@ -122,70 +108,5 @@ main {
       }
     }
   }
-  #corsi-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-    grid-template-rows: auto;
-    .black-row {
-      background: $bg-black-light;
-      grid-column: 1/7;
-      grid-row: 1;
-      display: grid;
-      border-top-right-radius: 1rem;
-      grid-template-columns: repeat(6, 1fr); // Crea una griglia di 12 colonne
-      grid-template-rows: auto;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      min-height: 15vh;
-      align-items: center;
-      color: $white;
-      p {
-        grid-column: 2/6;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-    }
-    .white-row {
-      grid-column: 7/12;
-      grid-row: 1;
-      display: grid;
-      border-top-right-radius: 1rem;
-      grid-template-columns: repeat(6, 1fr); // Crea una griglia di 12 colonne
-      grid-template-rows: auto;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      height: 15vh;
-      align-items: center;
-    }
-    .black-row-2 {
-      background: $bg-black-light;
-      grid-column: 1/13;
-      grid-row: 3;
-      display: grid;
-      border-top-right-radius: 1rem;
-      grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-      grid-template-rows: auto;
-      padding: 3rem 0;
-    }
-    h2 {
-      text-transform: uppercase;
-      grid-column: 1/7;
-      grid-row: 1;
-      text-align: center;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      margin: 0;
-    }
-    .plus-row {
-      grid-column: 1/13;
-      grid-row: 3;
-      background: $bg-black-light;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-      grid-template-rows: auto;
-      min-height: 10vh;
-      align-items: start;
-      padding-bottom: 3rem;
-    }
-  }
+
 }

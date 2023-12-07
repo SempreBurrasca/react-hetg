@@ -1,15 +1,20 @@
 main {
-  .hero-section {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-  }
+
 
   &#contattaci {
     .hero-section {
-      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
+      min-height: 100vh;
       padding: 3rem 0;
       grid-template-rows: auto;
       padding: 4rem 0;
+      @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        padding-top: 5rem;
+      }
       .spacer{
         grid-column: 1/13;
         height: 20px;
@@ -30,71 +35,7 @@ main {
         text-align: left;
 
       }
-      form {
-        display: flex;
-        flex-direction: column;
-        grid-column: 7/11;
-        align-items: end;
-        grid-row: 2;
-        label,
-        a {
-          text-transform: uppercase;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-          margin: 0.5rem 0;
-          width: 100%;
-          padding: 0.5rem;
-          border: 3px solid $magenta; // magenta
-          background-color: white;
-          color: $dark-blu;
-          border-radius: 0.5rem;
-          font-size: 1rem;
-          transition: border-color 0.3s;
-          min-height: 2rem;
-
-          &:focus {
-            border-color: darken($magenta, 10%);
-            outline: none;
-          }
-        }
-        textarea {
-          resize: vertical;
-        }
-
-        input[type="checkbox"] {
-          margin-right: 0.5rem;
-        }
-
-        a {
-          color: $magenta;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-        button {
-          margin-top: 1rem;
-          background-color: $magenta; // magenta
-          color: $white;
-          padding: 1rem 2rem;
-          font-size: 1rem;
-          border: none;
-          border-radius: 0.5rem;
-          cursor: pointer;
-          transition: background-color 0.3s;
-          align-self: flex-end;
-          font-size: 1rem;
-          text-transform: uppercase;
-          font-weight: bold;
-
-          &:hover {
-            background-color: darken($magenta, 10%);
-          }
-        }
-      }
+    
     }
   }
 }

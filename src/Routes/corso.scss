@@ -1,0 +1,128 @@
+#single-corso {
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("../assets/bg-home.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 2rem;
+    @media (max-width:1000px) {
+      justify-content: start;
+    }
+    h1 {
+      &.page-title {
+        font-size: 45px;
+        text-align: center;
+        margin-top: 6rem;
+        align-self: center;
+        text-shadow: 1px 2px 2px black;
+        @media (max-width: 1000px) {
+          font-size: 25px;
+          margin-top: 3.5rem;
+        }
+
+        i {
+          font-size: 30px;
+          @media (max-width: 1000px) {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    p {
+      text-align: center;
+      align-self: center;
+      padding: 0 50px;
+      text-shadow: 1px 2px 2px black;
+      @media (max-width: 1000px) {
+        padding: 0;
+      }
+    }
+    @media (max-width: 1000px) {
+      h1 {
+        &.page-title {
+          font-size:1.4rem;
+          i {
+            font-size: 1.4rem;
+          }
+        }
+      }
+      p {
+        font-size: .7rem;
+      }
+    }
+  }
+
+  #info-section {
+    padding: 4rem;
+    @media (max-width: 1000px) {
+      padding: 2rem;
+    }
+    .content {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      padding: 0 4rem;
+      @media (max-width: 1000px) {
+        padding: 0;
+      }
+      h2 {
+        max-width: 50vw;
+        font-size: xxx-large;
+        @media (max-width: 1000px) {
+          font-size: xx-large;
+        }
+      }
+      h4 {
+        text-align: end;
+        color: $magenta;
+        font-size: x-large;
+        margin: 10px;
+        @media (max-width: 1000px) {
+          align-self: start!important;
+          max-width: 500px;
+          text-align: start!important;
+        }
+      }
+      p {
+        text-align: end;
+        max-width: 50vw;
+        align-self: end;
+        @media (max-width: 1000px) {
+          align-self: start!important;
+          max-width: 500px;
+          text-align: start!important;
+        }
+        &.page-subtitle{
+          text-align: start;
+          align-self: start;
+        }
+      }
+      .button-container{
+        margin: 10px 0;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        @media (max-width: 1000px) {
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .corsi-wrap {
+        p {
+          text-align: end;
+          max-width: none;
+          align-self: end;
+        }
+
+        .divider {
+          background-color: $magenta;
+          height: 2px;
+        }
+      }
+    }
+  }
+}

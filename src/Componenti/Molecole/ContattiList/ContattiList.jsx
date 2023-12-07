@@ -39,31 +39,11 @@ export function ContattiList() {
     >
       <div>
         <h4>Segreteria degli studenti</h4>
-        <span>Telefono (per chi chiama dall'Italia): +39 (351) 813-4963</span>
+        <span>Telefono (per chi chiama dall'Italia): <br/>+39 (351) 813-4963</span>
         <span>Email: segreteria@unicampushetg.ch</span>
         <div className="divider" />
       </div>
 
-      <div>
-        <h4>Segreteria degli studenti</h4>
-        <span>Telefono (per chi chiama dall'Italia): +39 (351) 813-4963</span>
-        <span>Email: segreteria@unicampushetg.ch</span>
-        <div className="divider" />
-      </div>
-
-      <div>
-        <h4>Segreteria degli studenti</h4>
-        <span>Telefono (per chi chiama dall'Italia): +39 (351) 813-4963</span>
-        <span>Email: segreteria@unicampushetg.ch</span>
-        <div className="divider" />
-      </div>
-      
-      <div>
-        <h4>Segreteria degli studenti</h4>
-        <span>Telefono (per chi chiama dall'Italia): +39 (351) 813-4963</span>
-        <span>Email: segreteria@unicampushetg.ch</span>
-        <div className="divider" />
-      </div>
     </div>
   );
 }

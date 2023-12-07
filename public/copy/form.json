@@ -1,0 +1,38 @@
+{
+    "it": {
+
+        "nome": "Nome",
+        "cognome": "Cognome",
+        "email": "Email",
+        "telefono": "Telefono",
+        "corso": "Corso",
+        "messaggio": "Messaggio",
+        "privacy": "Accetto la privacy policy",
+        "submit": "Invia"
+ 
+    },
+    "en": {
+
+        "nome": "Name",
+        "cognome": "Surname",
+        "email": "Email",
+        "telefono": "Phone",
+        "corso": "Course",
+        "messaggio": "Message",
+        "privacy": "I accept the privacy policy",
+        "submit": "Send"
+
+    },
+    "fr": {
+
+        "nome": "Prénom",
+        "cognome": "Nom",
+        "email": "E-mail",
+        "telefono": "Téléphone",
+        "corso": "Cours",
+        "messaggio": "Message",
+        "privacy": "J'accepte la politique de confidentialité",
+        "submit": "Envoyer"
+  
+    }
+  }

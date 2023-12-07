@@ -1,0 +1,124 @@
+#form-contatto {
+  display: flex;
+  padding: 5rem;
+  padding-top: 4rem;
+  flex-direction: column;
+  @media (max-width: 1000px) {
+    padding: 2rem;
+
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      @media (max-width: 1000px) {
+        align-items: center;
+        justify-content: center;
+      }
+      h2 {
+        text-align: left;
+        margin-top: 2rem;
+        font-size: 2rem;
+        padding: 0 1rem;
+        max-width: 50vw;
+        color: $dark-blu !important;
+        @media (max-width: 1000px) {
+          text-align: center;
+          max-width: none;
+        }
+      }
+      p {
+        font-size: 1rem;
+        padding: 0 1rem;
+        max-width: 60vw;
+        color: $dark-blu !important;
+        @media (max-width: 1000px) {
+          max-width: none;
+        }
+      }
+      form {
+        @media (max-width: 1000px) {
+          align-self: center;
+          width: 70vw;
+        }
+        align-self: end;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        label,
+        a {
+          text-transform: uppercase;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+          margin: 0.5rem 0;
+          padding: 0.5rem;
+          border: 2px solid $magenta; // magenta
+          background-color: white;
+          color: $dark-blu;
+          border-radius: 0.5rem;
+          font-size: 0.8rem;
+          transition: border-color 0.3s;
+          font-family: "Gabarito", sans-serif;
+    
+          &:focus {
+            border-color: darken($magenta, 10%);
+            outline: none;
+          }
+        }
+        textarea {
+          resize: vertical;
+        }
+    
+        input[type="checkbox"] {
+          margin-right: 0.5rem;
+        }
+    
+        a {
+          color: $magenta;
+    
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        button {
+          margin-top: 1rem;
+          background-color: $magenta; // magenta
+          color: $white;
+          padding: 1rem 2rem;
+          font-size: 1rem;
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          align-self: flex-end;
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: bold;
+    
+          &:hover {
+            background-color: darken($magenta, 10%);
+          }
+        }
+      }
+    }
+    .plus{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      @media (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+
+
+}

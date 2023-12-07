@@ -1,102 +1,59 @@
+import React, { useEffect } from "react";
 import { Button } from "../Componenti/Molecole/Buttons/Button";
-import { PartnersLogo } from "../Componenti/Molecole/PartnersLogo/PartnersLogo";
-import { PlusIcon } from "../Componenti/Molecole/PlusIcon/PlusIcon";
-import { Striscia } from "../Componenti/Molecole/Striscia/Striscia";
-import { FacultyCarousel } from "../Componenti/Organismi/FacultyCarousel/FacultyCarousel";
-import { coursessData, partnersData } from "../assets/data";
+import { useIsMobile } from "../Componenti/Tools/useIsMobile";
 import { useNavigate } from "react-router-dom";
 import "./contattaci.scss";
 import { CoursesCarousel } from "../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-
+import { getPagina } from "../Firebase/RecuperoCopy";
+import { Loader } from "../Componenti/Organismi/Loader/Loader";
+import { Form } from "../Componenti/Organismi/Form/Form";
 export function Vae() {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const [copy, setCopy] = React.useState(null);
+  const paginaId = "1G46OZEOu2VdpX5S6aod";
+  useEffect(() => {
+    fetch("/copy/vae.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
+        setCopy(data.it);
+      })
+      .catch((error) => {
+        console.error("Error fetching the copy data:", error);
+      });
+  }, []);
+
+  if (!copy) {
+    return <Loader />;
+  }
   return (
     <main id="contattaci">
       <section className="hero-section">
         <div className="spacer" />
         <div>
-          <h2 className="section-title">
-            Valutazione Accademica dell’Esperienza: <br />
-            Il tuo percorso Riconosciuto
-          </h2>
-          <p>
-            La Valutazione Accademica dell’Esperienza (VAE) in HETG è una
-            celebrazione della tua dedizione, delle tue competenze e delle tue
-            esperienze. Riconosciamo che l’apprendimento non avviene solo in
-            aula, ma anche attraverso le sfide e le opportunità che la vita
-            professionale presenta. La VAE è il nostro modo di onorare e
-            valorizzare queste esperienze, permettendoti di convertire la tua
-            storia professionale in crediti formativi. Che tu abbia guidato
-            progetti innovativi, gestito team o contribuito a rivoluzionare un
-            settore, la tua esperienza ha un valore inestimabile. Con la VAE,
-            HETG ti offre la possibilità di avvicinarti ai tuoi obiettivi
-            accademici, riconoscendo e integrando il tuo percorso professionale
-            nel mondo accademico.
-          </p>
+          <h2 className="section-title">{copy.content[0]}</h2>
+          <p>{copy.content[1]}</p>
         </div>
-        <form>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            placeholder="Nome"
-            required
-          />
-          <input
-            type="text"
-            id="cognome"
-            name="cognome"
-            placeholder="Cognome"
-            required
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            required
-          />
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            placeholder="Telefono"
-            required
-          />
-          <input
-            type="text"
-            id="corso"
-            name="corso"
-            placeholder="Corso"
-            required
-          />
-          <textarea
-            id="messaggio"
-            name="messaggio"
-            rows="4"
-            placeholder="Messaggio"
-            required
-          ></textarea>
-          <div className="form-group">
-            <input type="checkbox" id="privacy" name="privacy" required />
-            <label htmlFor="privacy">
-              Accetto la{" "}
-              <a onClick={() => navigate("/policies")}>privacy policy</a>
-            </label>
-          </div>
-          <button type="submit">Invia</button>
-        </form>
-        <Button
-          style={{ position: "absolute", bottom: "3rem", left: "1rem" }}
-          angleposition={{
-            overTopLeft: true,
-            underBottomLeft: true,
-          }}
-          borderradius="bottom-right-radius top-right-radius"
-          path="contattaci"
-        >
-          Scarica il documento
-        </Button>
+        <Form />
+        {!isMobile && (
+          <Button
+            style={{ position: "absolute", bottom: "3rem", left: "1rem" }}
+            angleposition={{
+              overTopLeft: true,
+              underBottomLeft: true,
+            }}
+            borderradius="bottom-right-radius top-right-radius"
+            path="contattaci"
+          >
+            {copy.content[2]}
+          </Button>
+        )}
       </section>
 
       <div className="divider" />

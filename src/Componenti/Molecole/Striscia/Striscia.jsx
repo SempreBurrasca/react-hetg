@@ -1,11 +1,33 @@
+import { useNavigate } from "react-router-dom";
+import { getFacoltas } from "../../../Firebase/RecuperoCopy";
 import { Button } from "../Buttons/Button";
 import { PlusIcon } from "../PlusIcon/PlusIcon";
 import "./striscia.scss";
-import { useRef, useEffect } from "react";
+import React,{ useRef, useEffect, useState } from "react";
 
 export function Striscia(props) {
+  const navigate = useNavigate()
   const scrollRef = useRef(null);
-
+  const [facolta,setFacolta]=useState([])
+  const fetchFacoltas = () => {
+    getFacoltas()
+      .then((data) => {
+        localStorage.setItem("facolta", JSON.stringify(data));
+        setFacolta(data);
+      })
+      .catch(console.error);
+  };
+  React.useEffect(() => {
+    // Controlla se i dati sono presenti in localStorage
+    const cachedFacolta = localStorage.getItem("facolta");
+    if (cachedFacolta) {
+      // Se presenti in localStorage, utilizza i dati dalla cache
+      setFacolta(JSON.parse(cachedFacolta));
+      console.log("Presa dalla cache");
+    } else {
+      fetchFacoltas();
+    }
+  }, []);
   useEffect(() => {
     let animationFrameId;
 
@@ -35,11 +57,11 @@ export function Striscia(props) {
   return (
     <>
       <div className="striscia" ref={scrollRef}>
-        {[...Array(52)].map(() => (
-          <>
-            <span>Facoltà X</span>
+        {facolta.map((f,index) => (
+          <div key={f.id+"str"} onClick={()=>navigate("/facolta/"+f.id)}>
+            <span >{f.nome}</span>
             <PlusIcon style={{ width: "1rem", height: "1rem" }} />
-          </>
+          </div>
         ))}
       </div>
     </>

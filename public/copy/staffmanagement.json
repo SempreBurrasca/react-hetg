@@ -1,0 +1,39 @@
+{
+    "it": {
+      "hero": [
+        "STAFF & MANAGEMENT",
+        "ARCHITETTI DELL'EDUCAZIONE",
+        "TUTTE LE RISORSE E LE INFORMAZIONI DI CUI HAI BISOGNO, IN UN UNICO LUOGO."
+      ],
+      "staff": [
+        "IL MANAGEMENT",
+        "I DOCENTI",
+        "LA SEGRETERIA"
+      ],
+      "management":[
+        "Rettore","Prorettore","Direttore Generale","Senato Accademico","Nucleo di Valutazione"
+      ]
+    },
+    "en": {
+      "hero": [
+        "STAFF & MANAGEMENT",
+        "ARCHITECTS OF EDUCATION",
+        "ALL THE RESOURCES AND INFORMATION YOU NEED, IN ONE PLACE."
+      ],
+      "staff": [
+        "THE MANAGEMENT",
+        "THE TEACHERS"
+      ]
+    },
+    "fr": {
+      "hero": [
+        "STAFF & GESTION",
+        "ARCHITECTES DE L'ÉDUCATION",
+        "TOUTES LES RESSOURCES ET INFORMATIONS DONT VOUS AVEZ BESOIN, EN UN SEUL ENDROIT."
+      ],
+      "staff": [
+        "LA GESTION",
+        "LES ENSEIGNANTS"
+      ]
+    }
+  }
