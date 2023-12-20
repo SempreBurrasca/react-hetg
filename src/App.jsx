@@ -39,6 +39,7 @@ import { SingleCorso } from "./Routes/SingleCorso";
 import { Person } from "./Routes/Person";
 import { Linktree } from "./Routes/Linktree";
 import { LavoraConNoi } from "./Routes/LavoraConNoi";
+import { Accreditamento } from "./Routes/Accreditamento";
 
 function App() {
   const location = useLocation();
@@ -80,6 +81,7 @@ function App() {
           <Route path="/orientamento" element={<Orientamento />} />
           <Route path="/ammissione" element={<Ammissione />} />
           <Route path="/vae-form" element={<Vae />} />
+          <Route path="/accreditamento" element={<Accreditamento />} />
           <Route path="linktree" element={<Linktree />} />
           <Route path="/policies" element={<div />} />
           <Route path="/login" element={<Login />} />

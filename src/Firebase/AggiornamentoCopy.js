@@ -150,3 +150,14 @@ export async function aggiornaCorsoById(corsoData) {
     throw error; // Rilancia l'errore per un'eventuale gestione degli errori nel componente.
   }
 }
+
+export async function aggiornaOrdiniIstituzioni( campi) {
+  const ordiniRef = doc(db, "admin", "ordini");
+
+  try {
+    await updateDoc(ordiniRef, campi);
+    console.log("Documento degli OrdiniIstituzioni aggiornato con successo");
+  } catch (error) {
+    console.error("Errore durante l'aggiornamento del documento degli OrdiniIstituzioni:", error);
+  }
+}

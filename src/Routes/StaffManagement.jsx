@@ -5,7 +5,12 @@ import { Striscia } from "../Componenti/Molecole/Striscia/Striscia";
 import { partnersData, coursessData } from "../assets/data";
 import { useNavigate } from "react-router-dom";
 import { CoursesCarousel } from "../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-import { getDocenti, getPagina, getStaff } from "../Firebase/RecuperoCopy";
+import {
+  getDocenti,
+  getPagina,
+  getStaff,
+  getOrdini,
+} from "../Firebase/RecuperoCopy";
 import { Loader } from "../Componenti/Organismi/Loader/Loader";
 import "./staff-management.scss";
 import { CorsiSezione } from "../Componenti/Sezioni/CorsiSezione/CorsiSezione";
@@ -19,6 +24,12 @@ export function StaffManagement() {
   const [loading, setLoading] = useState(true);
   const [copy, setCopy] = useState(null);
   const [activeTab, setActiveTab] = useState("Magnifico Rettore");
+  const [ordineSenatoAccademico, setOrdineSenatoAccademico] = useState([]);
+  const [ordineNucleoDiValutazione, setOrdineNucleoDiValutazione] = useState(
+    []
+  );
+  const [ordineCommissioneQualita, setOrdineCommissioneQualita] = useState([]);
+  const [currentOrder, setCurrentOrder] = useState([]);
 
   const tabs = [
     { title: "Magnifico Rettore", role: "Magnifico Rettore" },
@@ -31,6 +42,44 @@ export function StaffManagement() {
   const changeTab = (role) => {
     setActiveTab(role);
   };
+  // Nel tuo useEffect che recupera gli ordini, aggiorna anche l'ordine corrente
+  useEffect(() => {
+    async function fetchOrdini() {
+      try {
+        const ordiniData = await getOrdini();
+        if (ordiniData) {
+          setOrdineSenatoAccademico(ordiniData.senatoAccademico.split(","));
+          setOrdineNucleoDiValutazione(
+            ordiniData.nucleoDiValutazione.split(",")
+          );
+          setOrdineCommissioneQualita(ordiniData.commissioneQualita.split(","));
+
+          // In base all'activeTab attuale, imposta l'ordine corrente
+          switch (activeTab) {
+            case "Senato Accademico":
+              setCurrentOrder(ordiniData.senatoAccademico.split(",").map(item => item.trim()));
+              break;
+            case "Nucleo di Valutazione":
+              setCurrentOrder(ordiniData.nucleoDiValutazione.split(",").map(item => item.trim()));
+              break;
+            case "Commissione Qualità":
+              setCurrentOrder(ordiniData.commissioneQualita.split(",").map(item => item.trim()));
+              break;
+            default:
+              setCurrentOrder([]); // Imposta l'ordine corrente come vuoto per le altre schede
+              break;
+          }
+        }
+        console.log(currentOrder)
+      } catch (error) {
+        console.error("Errore durante il recupero degli Ordini:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchOrdini();
+  }, [activeTab]); // Aggiungi activeTab come dipendenza
   //RECUPERA I COPY
   useEffect(() => {
     fetch("/copy/staffmanagement.json")
@@ -95,7 +144,6 @@ export function StaffManagement() {
       <Striscia />
       <section className="staff-section">
         <h2>{copy.staff[0]}</h2>
-
         <div className="container-t">
           <div className="tab-headers">
             {tabs.map((tab) => (
@@ -112,53 +160,67 @@ export function StaffManagement() {
             {docenti
               .filter((person) => person.ruolo?.includes(activeTab))
               .sort((a, b) => {
-                // Controlla se il ruolo contiene le parole chiave seguite da activeTab
-                const roleA = a.ruolo.toLowerCase();
-                const roleB = b.ruolo.toLowerCase();
-                const activeTabLower = activeTab.toLowerCase();
-                const isPresidenteA = roleA.includes(
-                  `presidente ${activeTabLower}`
-                );
-                const isDirettoreA = roleA.includes(
-                  `direttore ${activeTabLower}`
-                );
-                const isPresidenteB = roleB.includes(
-                  `presidente ${activeTabLower}`
-                );
-                const isDirettoreB = roleB.includes(
-                  `direttore ${activeTabLower}`
-                );
+                if (
+                  activeTab === "Senato Accademico" ||
+                  activeTab === "Nucleo di Valutazione" ||
+                  activeTab === "Commissione Qualità"
+                ) {
+                  const indexA = currentOrder.indexOf(a.nome.trim());
+                  const indexB = currentOrder.indexOf(b.nome.trim());
 
-                // Assegna un peso maggiore ai ruoli di "presidente" e "direttore" solo se seguiti da activeTab
-                const weightA = isPresidenteA || isDirettoreA ? 1 : 0;
-                const weightB = isPresidenteB || isDirettoreB ? 1 : 0;
+                  // Se uno dei nomi non è presente nell'array currentOrder, posizionalo alla fine
+                  if (indexA === -1 && indexB === -1) {
+                    return a.nome.localeCompare(b.nome);
+                  } else if (indexA === -1) {
+                    return 1;
+                  } else if (indexB === -1) {
+                    return -1;
+                  } else {
+                    return indexA - indexB;
+                  }
+                } else {
+                  const weightA = a.weight;
+                  const weightB = b.weight;
 
-                // Ordina prima per peso, poi per nome se il peso è uguale
-                return weightB - weightA || a.nome.localeCompare(b.nome);
+                  if (weightA !== undefined && weightB !== undefined) {
+                    return weightA - weightB;
+                  } else if (weightA !== undefined) {
+                    return -1;
+                  } else if (weightB !== undefined) {
+                    return 1;
+                  } else {
+                    return a.nome.localeCompare(b.nome);
+                  }
+                }
               })
               .map((person) => (
                 <div
                   className="staff-card"
                   key={person.id}
-                  style={{ backgroundImage: "url(" + person.imageUrl + ")" }}
+                  style={{ backgroundImage: `url(${person.imageUrl})` }}
                 >
                   <div
                     className="staff-cta"
                     onClick={() => navigate("/person/" + person.id)}
                   >
-                    <span>Prof. {person.nome}</span>
+                    <span>
+                      {person.id !== "TNAN5JWXX59oAw9VW0Qg"
+                        ? "Prof. "
+                        : "Dott. "}
+                      {person.nome.trim()}
+                    </span>
                     <img className="arrow" src={arrow_right} />
                   </div>
                 </div>
               ))}
           </div>
         </div>
-
         <PlusIcon isRed style={{ gridColumn: 2, gridRow: 4 }} />
         <PlusIcon isRed style={{ gridColumn: 5, gridRow: 4 }} />
         <PlusIcon isRed style={{ gridColumn: 9, gridRow: 4 }} />
         <PlusIcon isRed style={{ gridColumn: 12, gridRow: 4 }} />
       </section>
+
       <section className="staff-section">
         <h2>{copy.staff[2]}</h2>
         <div className="cards-container">
@@ -205,7 +267,7 @@ export function StaffManagement() {
                     className="staff-cta"
                     onClick={() => navigate("/person/" + person.id)}
                   >
-                    <span>{person.nome}</span>
+                    <span>Prof. {person.nome}</span>
                     <img className="arrow" src={arrow_right} />
                   </div>
                 </div>
@@ -216,37 +278,62 @@ export function StaffManagement() {
       <section className="staff-section">
         <h2>{copy.staff[1]}</h2>
         <div className="cards-container">
-          {docenti.map((person) => (
-            <div className="docenti-wrap">
-              <div
-                className="staff-card"
-                key={person.id}
-                style={{ backgroundImage: "url(" + person.imageUrl + ")" }}
-              >
-                {/* Presumo che l'oggetto person abbia una proprietà nome */}
-                <div
-                  className="staff-cta"
-                  onClick={() => navigate("/person/" + person.id)}
-                >
-                  {" "}
-                  {/* Cambia il percorso come necessario */}
-                  <span>Prof. {person.nome}</span>
-                  <img className="arrow" src={arrow_right} />
-                </div>
-              </div>
-              <span>
-                {(() => {
-                  const ruoloParts = person.ruolo
-                    ?.split("-")
-                    .map((part) => part.trim());
-                  const docentePart = ruoloParts?.find((part) =>
-                    part.includes("Docente")
-                  );
-                  return docentePart || (ruoloParts?.[0] ?? "");
-                })()}
-              </span>
-            </div>
-          ))}
+          {docenti
+            .sort((a, b) => {
+              const weightA = a.weight;
+              const weightB = b.weight;
+
+              // Verifica se weightA è definito (non è null o undefined)
+              if (weightA !== undefined && weightB !== undefined) {
+                // Ordina in base al peso in ordine crescente
+                return weightA - weightB;
+              } else if (weightA !== undefined) {
+                // Se solo weightA è definito, metti a davanti a b
+                return -1;
+              } else if (weightB !== undefined) {
+                // Se solo weightB è definito, metti b davanti a a
+                return 1;
+              } else {
+                // Se nessuno dei due ha weight definito, ordina per nome
+                return a.nome.localeCompare(b.nome);
+              }
+            })
+            .map(
+              (person) =>
+                person.id !== "TNAN5JWXX59oAw9VW0Qg" && (
+                  <div className="docenti-wrap">
+                    <div
+                      className="staff-card"
+                      key={person.id}
+                      style={{
+                        backgroundImage: "url(" + person.imageUrl + ")",
+                      }}
+                    >
+                      {/* Presumo che l'oggetto person abbia una proprietà nome */}
+                      <div
+                        className="staff-cta"
+                        onClick={() => navigate("/person/" + person.id)}
+                      >
+                        {" "}
+                        {/* Cambia il percorso come necessario */}
+                        <span>Prof. {person.nome}</span>
+                        <img className="arrow" src={arrow_right} />
+                      </div>
+                    </div>
+                    <span>
+                      {(() => {
+                        const ruoloParts = person.ruolo
+                          ?.split("-")
+                          .map((part) => part.trim());
+                        const docentePart = ruoloParts?.find((part) =>
+                          part.includes("Docente")
+                        );
+                        return docentePart || (ruoloParts?.[0] ?? "");
+                      })()}
+                    </span>
+                  </div>
+                )
+            )}
         </div>
         <PlusIcon isRed style={{ gridColumn: 2, gridRow: 4 }} />
         <PlusIcon isRed style={{ gridColumn: 5, gridRow: 4 }} />

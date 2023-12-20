@@ -3,10 +3,9 @@ main {
 
   &#contattaci {
     .hero-section {
+      padding-top: 8rem!important;
       display: grid;
       grid-template-columns: repeat(12, 1fr); // Crea una griglia di 12 colonne
-      min-height: 100vh;
-      padding: 3rem 0;
       grid-template-rows: auto;
       padding: 4rem 0;
       @media (max-width: 1000px) {
@@ -35,7 +34,34 @@ main {
         text-align: left;
 
       }
+      a{
+        color: $magenta!important;
+      }
     
+    }
+  }
+
+  .document-section{
+    padding: 1rem 8rem;
+    display: flex;
+    flex-direction: column;
+    h2{
+      font-size: 16px;
+      color: $magenta;
+    }
+    strong{
+      font-weight: 700;
+    }
+    
+  }
+  #accreditamento{
+    padding-top: 10rem;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    padding-bottom: 5rem;
+    h1{
+      text-align: center;
+      font-size: xx-large;
     }
   }
 }

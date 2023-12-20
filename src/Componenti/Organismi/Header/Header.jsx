@@ -129,6 +129,15 @@ useEffect(()=>{
             >
               {copy.header[4]}
             </li>
+            <li className="menu-item"   onClick={() => handleNavigate("/vae-form")}>
+              {copy.header[10]}
+            </li>
+            <li
+                className="menu-item"
+                onClick={() => handleNavigate("/accreditamento")}
+              >
+                {copy.header[11]}{" "}
+              </li>
             <li
               className="menu-item"
               onClick={() => handleNavigate("/student-central/staff-management")}
@@ -138,6 +147,7 @@ useEffect(()=>{
             <li className="menu-item" onClick={() => handleNavigate(links.piattaforma)}>
               {copy.header[5]}
             </li>
+  
             <li
               className="menu-item"
               onClick={() => handleNavigate("/contattaci")}

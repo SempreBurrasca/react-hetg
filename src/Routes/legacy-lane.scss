@@ -118,4 +118,19 @@ main {
     
   
   }
+  .about-section-2{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    p{
+      font-weight: 400;
+      strong{
+        font-weight: 600;
+        color: $magenta;
+      }
+    }
+  }
 }

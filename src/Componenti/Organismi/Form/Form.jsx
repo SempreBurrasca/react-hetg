@@ -69,10 +69,12 @@ export function Form() {
       return false;
     }
 
-    // Controllo che il numero di telefono sia valido (esempio base)
-    const phoneRegex = /^\d{10}$/;
+    // Controllo che il numero di telefono sia valido (con prefisso nazionale)
+    const phoneRegex = /^(\+\d{1,})?\d{10,}$/;
     if (!phoneRegex.test(formData.telefono)) {
-      setFeedback("Inserisci un numero di telefono valido.");
+      setFeedback(
+        "Inserisci un numero di telefono valido con prefisso nazionale."
+      );
       return false;
     }
 

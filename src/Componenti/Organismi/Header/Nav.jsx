@@ -41,6 +41,18 @@ export function Nav(props) {
               </li>
               <li
                 className="menu-item"
+                onClick={() => navigate("/vae-form")}
+              >
+                {copy.header[10]}{" "}
+              </li>
+              <li
+                className="menu-item"
+                onClick={() => navigate("/accreditamento")}
+              >
+                {copy.header[11]}{" "}
+              </li>
+              <li
+                className="menu-item"
                 onClick={() =>
                   navigate("/student-central/staff-management")
                 }

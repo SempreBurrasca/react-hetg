@@ -1,83 +1,98 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
-import { db } from '../../Firebase/firebase';
-
+import React, { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebase";
+import {aggiornaOrdiniIstituzioni} from "../../Firebase/AggiornamentoCopy"
+import {getOrdini} from "../../Firebase/RecuperoCopy"
 export function AdminHome() {
   const navigate = useNavigate();
-  const [collectionName, setCollectionName] = useState('triennale');
-  const [file, setFile] = useState(null);
 
-
-  // Funzione per scaricare i dati come JSON
-  const downloadData = async () => {
-    if (!collectionName.trim()) {
-      alert("Inserisci il nome di una collezione.");
-      return;
-    }
-    
-    try {
-      const querySnapshot = await getDocs(collection(db, collectionName));
-      const data = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      const jsonString = JSON.stringify(data);
-      const blob = new Blob([jsonString], { type: 'application/json' });
-      const href = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = href;
-      link.download = `${collectionName}.json`;
-      document.body.appendChild(link); // Aggiunta al body per garantire il funzionamento su alcuni browser
-      link.click();
-      link.remove(); // Rimuove il link dal DOM
-      URL.revokeObjectURL(href);
-    } catch (error) {
-      console.error("Errore nel recupero dei dati:", error);
-    }
-  };
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
-  const uploadData = async () => {
-    if (!file) {
-      alert('Per favore, carica un file JSON.');
-      return;
-    }
-    if (!collectionName.trim()) {
-      alert('Per favore, inserisci il nome di una collezione.');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = async (e) => {
+  // Stati per i valori dei campi di testo
+  const [senatoAccademico, setSenatoAccademico] = useState("");
+  const [nucleoDiValutazione, setNucleoDiValutazione] = useState("");
+  const [commissioneQualita, setCommissioneQualita] = useState("");
+  const [feed, setFeed] = useState("");
+  // Effettua la chiamata a getOrdini al caricamento del componente
+  useEffect(() => {
+    async function fetchOrdini() {
       try {
-        const json = JSON.parse(e.target.result);
-        for (const item of json) {
-          console.log(item.id)
-          if (item.id) {
-            const docRef = doc(db, collectionName, item.id);
-            await updateDoc(docRef, item);
-          } else {
-            console.error('ID mancante nel documento:', item);
-          }
+        const ordiniData = await getOrdini();
+        if (ordiniData) {
+          // Popola i campi di testo con i dati recuperati
+          setSenatoAccademico(ordiniData.senatoAccademico);
+          setNucleoDiValutazione(ordiniData.nucleoDiValutazione);
+          setCommissioneQualita(ordiniData.commissioneQualita);
         }
-        alert('Aggiornamento della collezione completato.');
       } catch (error) {
-        console.error('Errore durante l\'aggiornamento dei dati:', error);
-        alert('Si è verificato un errore durante l\'aggiornamento dei dati.');
+        console.error("Errore durante il recupero degli Ordini:", error);
       }
+    }
+
+    fetchOrdini();
+  }, []);
+
+  const handleSaveOrder = async () => {
+    // Creare un oggetto campi con i dati da aggiornare
+    const campi = {
+      senatoAccademico,
+      nucleoDiValutazione,
+      commissioneQualita,
     };
-    reader.readAsText(file);
+
+    // Chiamare la funzione di aggiornamento passando i campi
+    await aggiornaOrdiniIstituzioni(campi);
+    setFeed("Aggiornamento Effettuato con successo");
   };
 
   return (
-    <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-    
+    <Box
+      sx={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "start",
+        gap: 2,
+      }}
+    >
+      <div>
+        <h2>Ordine delle gerarchie dell'amministrazione</h2>
+        <p>
+          Per ogni istituzione inserisci in ordine i nomi dei docenti separati da
+          ","
+        </p>
+      </div>
+      {/* Form per Senato Accademico */}
+      <TextField
+        label="Senato Accademico"
+        variant="outlined"
+        value={senatoAccademico}
+        onChange={(e) => setSenatoAccademico(e.target.value)}
+      />
+
+      {/* Form per Nucleo di Valutazione */}
+      <TextField
+        label="Nucleo di Valutazione"
+        variant="outlined"
+        value={nucleoDiValutazione}
+        onChange={(e) => setNucleoDiValutazione(e.target.value)}
+      />
+
+      {/* Form per Commissione Qualità */}
+      <TextField
+        label="Commissione Qualità"
+        variant="outlined"
+        value={commissioneQualita}
+        onChange={(e) => setCommissioneQualita(e.target.value)}
+      />
+
+      {/* Bottone "Salva Ordine" */}
+      <Button variant="contained" color="primary" onClick={handleSaveOrder}>
+        Salva Ordine
+      </Button>
+      <p>{feed}</p>
     </Box>
   );
 }
