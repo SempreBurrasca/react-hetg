@@ -138,6 +138,12 @@ useEffect(()=>{
               >
                 {copy.header[11]}{" "}
               </li>
+              <li
+                className="menu-item"
+                onClick={() => window.open('http://www.eit-ateneo.org')}
+              >
+                {copy.header[12]}{" "}
+              </li>
             <li
               className="menu-item"
               onClick={() => handleNavigate("/student-central/staff-management")}

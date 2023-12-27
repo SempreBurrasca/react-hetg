@@ -53,6 +53,12 @@ export function Nav(props) {
               </li>
               <li
                 className="menu-item"
+                onClick={() => window.open('http://www.eit-ateneo.org')}
+              >
+                {copy.header[12]}{" "}
+              </li>
+              <li
+                className="menu-item"
                 onClick={() =>
                   navigate("/student-central/staff-management")
                 }

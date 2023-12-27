@@ -3,6 +3,7 @@
   overflow-x: auto;
   white-space: nowrap;
   align-items: center;
+  justify-content:center;
   min-height: 35vh;
   grid-column: 1/13;
   background-color: $bg-black-light;
@@ -13,8 +14,10 @@
   img {
     margin-right: 1rem;
     margin-left: 1rem;
+    border-radius: 1rem;
+    border: .8rem solid black;
     cursor: pointer;
-    width: 10rem;
+    width: 9rem;
     height: auto;
     @media (max-width: 1000px) {
       width: 7rem;
