@@ -57,14 +57,15 @@ export async function aggiungiStaff(nome, descrizione, tipoStaff) {
     console.error("Errore durante aggiunta del documento: ", error);
   }
 }
-export async function aggiungiDocenti(nome, descrizione) {
+export async function aggiungiDocenti(nomeCognome, descrizione) {
   try {
     // Creare un riferimento alla collezione "facolta"
     const facoltaCollectionRef = collection(db, "docenti");
 
     // Aggiungere un nuovo documento alla collezione "facolta"
     const docRef = await addDoc(facoltaCollectionRef, {
-      nome: nome,
+      nome: nomeCognome[1]+" "+nomeCognome[0],
+      nomeCognome:[nomeCognome[0],nomeCognome[1]],
       descrizione: descrizione,
     });
 

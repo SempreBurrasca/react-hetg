@@ -1,0 +1,237 @@
+{
+  "it": {
+    "CoursesCarouse": {
+      "cta": "Visita ora"
+    },
+    "header": [
+      "HOME",
+      "OFFERTA FORMATIVA",
+      "SEGRETERIA STUDENTI",
+      "CHI SIAMO",
+      "ORIENTAMENTO",
+      "ACCEDI ALLA PIATTAFORMA",
+      "CONTATTACI ORA",
+      "MENU",
+      "CHIUDI",
+      "MANAGEMENT",
+      "SCOPRI IL VAE",
+      "ACCREDITAMENTO",
+      "UNIversità Americana"
+    ],
+    "footer": [
+      "SEGUICI SU: ",
+      "FACOLTà e CORSI",
+      "SEGRETERIA STUDENTI",
+      "COOKIES & PRIVACY POLICIES",
+      "STAFF & MANAGEMENT",
+      "Chemin Frank–THOMAS 34,",
+      "c/o ALBER & ROLLE Experts-comptables Associés SA, 1208 Genève, Suisse",
+      "CHE 133.413.467",
+      "CONTATTACI",
+      "LAVORA CON NOI"
+    ],
+    "links": {
+      "piattaforma": "https://unicampushetg.ch",
+      "xcom": "https://unicampushetg.ch",
+      "instagram": "https://unicampushetg.ch",
+      "facebook": "https://unicampushetg.ch",
+      "linkedin": "https://unicampushetg.ch"
+    },
+    "form": {
+      "nome": "Nome",
+      "cognome": "Cognome",
+      "email": "Email",
+      "telefono": "Telefono",
+      "corso": "Corso",
+      "messaggio": "Messaggio",
+      "privacy": "Accetto la privacy policy",
+      "submit": "Invia"
+    },
+    "AcademicsSezione": {
+      "titoloSezione": "LE NOSTRE FACOLTÀ",
+      "sottotitoloSezione": "IL TUO ITINERARIO VERSO L’ECCELLENZA DOVE LA TRADIZIONE ACCADEMICA SVIZZERA INCONTRA L’INNOVAZIONE DEL DOMANI.",
+      "titoloRiscoperta": "Riscopri L’alta formazione: Realizza il Tuo Sogno Accademico con HETG.",
+      "descrizioneRiscoperta": "L’offerta formativa di HETG spazia da lauree triennali e magistrali, a master di primo e secondo livello, fino ai prestigiosi dottorati di ricerca."
+    },
+    "AllFacolta": {
+      "titoloSezione": "Tutte le Facoltà",
+      "testoLink": "Scopri di più",
+      "messaggioErroreCaricamento": "Errore nel caricamento delle facoltà"
+    },
+    "CorsiSezione": {
+      "introduzione": "Nel mondo in rapida evoluzione di oggi, l’apprendimento continuo è la chiave per rimanere al passo con le innovazioni e le tendenze emergenti.",
+      "titoloSezione": "SPECIALIZZATI CON ACADEMY: LA TUA AULA, IL TUO RITMO",
+      "descrizione": "Ecco perché HETG ha creato l’Academy: una selezione esclusiva di corsi di specializzazione progettati per offrirti le competenze più richieste nel mercato del lavoro attuale. Ogni corso Academy è stato curato da esperti del settore e pensato per offrire un’esperienza di apprendimento flessibile e approfondita. E la parte migliore? Non è necessaria alcuna ammissione. Sei libero di esplorare e acquistare i corsi che rispondono alle tue esigenze e interessi, studiando al tuo ritmo, nel comfort della tua casa o ovunque tu scelga. Che tu sia un professionista che cerca di aggiornare le sue competenze, un appassionato di un particolare argomento o semplicemente curioso di esplorare nuovi orizzonti, l’Academy di HETG ti offre l’opportunità di crescere e prosperare. Immergiti in un mondo di conoscenza senza barriere e inizia oggi il tuo viaggio di specializzazione.",
+      "testoBottone": "Vedi tutti i corsi"
+    },
+    "FormDiContatto": {
+      "titolo": "Apri la Porta al Tuo Futuro: Ammissioni Ora Aperte!",
+      "descrizione": "Nel cuore della missione di HETG c'è il desiderio di rendere l’alta formazione accessibile e significativa per tutti, indipendentemente dal percorso di vita intrapreso. Se senti che il tempo e le circostanze ti hanno tenuto lontano dal realizzare il tuo sogno accademico, siamo qui per aiutarti. Compilando il nostro form, avrai l'opportunità di entrare in contatto con un consulente d'iscrizione personale, pronto ad assisterti in ogni fase del processo. E grazie alla nostra Valutazione Accademica dell'Esperienza (VAE), la tua preziosa esperienza lavorativa può essere convertita in crediti formativi, avvicinandoti ancora di più al tuo obiettivo. Non aspettare, il tuo futuro accademico ti aspetta."
+    },
+    "OrientamentoSezione": {
+      "titolo": "NAVIGA L'ORIENTAMENTO HETG",
+      "descrizione": "Non sei sicuro di quale percorso sia il migliore per te? Lascia che ti guidiamo. L’orientamento HETG è stato progettato per aiutarti a scoprire e a comprendere meglio le tue opzioni accademiche.",
+      "testoBottone": "Orientamento"
+    },
+    "StaffSezione": {
+      "title": "ARCHITETTI DEL FUTURO EDUCATIVO",
+      "description": [
+        "DIETRO OGNI GRANDE ISTITUZIONE CI SONO MENTI VISIONARIE, E HETG NON FA ECCEZIONE. IL NOSTRO TEAM DI GESTIONE È COMPOSTO DA INDIVIDUI DEDICATI CHE HANNO DEDICATO LA LORO VITA ALL’ISTRUZIONE E ALL’INNOVAZIONE.",
+        "GUIDATI DAL RETTORE, PROF. ANTONINO GALLONI, QUESTI LEADER HANNO UNITO LE LORO DIVERSE ESPERIENZE E COMPETENZE PER CREARE UN UNICAMPUS TELEMATICA CHE RISPONDE ALLE ESIGENZE DEL PRESENTE E ANTICIPA LE SFIDE DEL FUTURO.",
+        "OGNI DECISIONE, OGNI INIZIATIVA, OGNI CORSO OFFERTO RIFLETTE LA LORO DEDIZIONE A FORNIRE UN’ISTRUZIONE DI QUALITÀ, ACCESSIBILE E RILEVANTE. MA PIÙ DI TUTTO, IL NOSTRO MANAGEMENT CREDE FERMAMENTE NEL POTENZIALE DI OGNI STUDENTE. ESSI VEDONO HETG NON SOLO COME UN LUOGO DI APPRENDIMENTO, MA COME UNA PIATTAFORMA DOVE GLI STUDENTI POSSONO SCOPRIRE SE STESSI, LE LORO PASSIONI E IL LORO POSTO NEL MONDO.",
+        "MENTRE CONTINUIAMO A NAVIGARE NELL’EVOLUZIONE DELL’ISTRUZIONE SUPERIORE, PUOI ESSERE CERTO CHE IL TEAM DI GESTIONE DI HETG SARÀ ALLA GUIDA, ASSICURANDO CHE UNICAMPUS RIMANGA ALL’AVANGUARDIA E FEDELE ALLA SUA MISSIONE."
+      ]
+    },
+    "SezioneVAE": {
+      "title": "NEL CUORE DELLA VISIONE DI HETG, LA VALUTAZIONE ACCADEMICA DELL’ESPERIENZA (VAE) EMERGE COME UN PILASTRO FONDAMENTALE.",
+      "description": "Riconoscendo che l’apprendimento e la crescita possono avvenire al di fuori delle tradizionali aule universitarie, la VAE celebra e valorizza le esperienze lavorative e professionali dei candidati.",
+      "button": "Valuta la tua esperienza"
+    },
+    "AcademicAvenues": {
+      "hero": [
+        "academic avenues:",
+        "dove la conoscenza incontra la passione",
+        "Esplora le nostre facoltà, corsi e opportunità uniche di apprendimento.",
+        "esplora il portale"
+      ],
+      "academics": ["Orientamento"]
+    },
+    "DiscoveryHub": {
+      "hero": [
+        "UNICAMPUS HETG",
+        "ARTES AD VITAM",
+        "L'UniCampus telematico Dove il tuo percorso incontra il futuro, senza barriere di tempo o spazio.",
+        "Inizia il tuo viaggio"
+      ],
+      "about": [
+        "Telematica, innovativa, flessibile: realizza sogni accademici senza confini.",
+        "Nel cuore digitale di Ginevra, UniCampus HETG emerge come un baluardo di innovazione e tradizione. Guidata dalla visione del Prof. Antonino Galloni, la nostra missione è chiara: abbattere le barriere dell’istruzione tradizionale, offrendo a imprenditori e leader la possibilità di realizzare sogni accademici rimasti in sospeso. Telematica, ma profondamente radicata nella prestigiosa eredità accademica svizzera, HETG rappresenta il futuro dell’educazione senza confini. Scopri di più sulla nostra storia in legacy lane",
+        "Visita legacy lane ora"
+      ],
+      "advantages": [
+        "Naviga nel Futuro: I Vantaggi del Campus Digitale HETG",
+        "porte aperte 24/7",
+        "Studia a tuo ritmo, accedendo a corsi e risorse 24 ore su 24, 7 giorni su 7, ovunque tu sia.",
+        "connessioni globali",
+        "Entra in una rete mondiale, collaborando e interagendo con studenti e docenti da ogni parte del globo.",
+        "Apprendimento Immersivo",
+        "Vivi un’educazione avanzata con simulazioni, laboratori virtuali e sessioni interattive che stimolano la tua curiosità."
+      ],
+      "academics": [
+        "ACADEMIC AVENUES",
+        "IL TUO ITINERARIO VERSO L’ECCELLENZA DOVE LA TRADIZIONE ACCADEMICA SVIZZERA INCONTRA L’INNOVAZIONE DEL DOMANI.",
+        "Riscopri L’alta formazione: Realizza il Tuo Sogno Accademico con HETG.",
+        "L’offerta formativa di HETG spazia da lauree triennali e magistrali, a master di primo e secondo livello, fino ai prestigiosi dottorati di ricerca.",
+        "Orientamento"
+      ]
+    },
+    "GatewayToGrowth": {
+      "hero": [
+        "Gateway To Growth:",
+        "Il tuo prossimo passo insieme a HETG",
+        "Tutto ciò che devi sapere per iniziare il tuo viaggio accademico con noi.",
+        "Accedi al portale"
+      ],
+      "about": [
+        "Trova la Tua Strada, Illumina il Tuo Futuro con HETG.",
+        "Come Iscriversi a HETG:",
+        "Iniziare il tuo percorso accademico con HETG è un processo semplice e diretto.",
+        "Scegli il Tuo Corso:",
+        "Naviga nella sezione Academic Avenues e esplora la vasta gamma di corsi e programmi che offriamo. Che tu sia interessato alle scienze, alle arti, alla tecnologia o a qualsiasi altro campo, troverai sicuramente il corso che fa per te.",
+        "Inoltra il Form di Ammissione:",
+        "Una volta scelto il corso, vai alla pagina di ammissione e compila il form di ammissione online. Assicurati di fornire tutte le informazioni richieste e di allegare eventuali documenti necessari.",
+        "Ecco fatto! Una volta inviato il form, il nostro team di ammissioni esaminerà la tua richiesta e ti contatterà per i prossimi passi. Se hai domande o hai bisogno di ulteriori informazioni durante il processo, non esitare a contattarci. Siamo qui per aiutarti in ogni fase del tuo viaggio con HETG.",
+        "Vai al form di ammissione",
+        "Sei ancora indeciso sul percorso da intraprendere?",
+        "Capita a tutti. Ma non preoccuparti, HETG è qui per aiutarti a scoprire la tua vera passione. Visita la nostra sezione Academic Avenues e immergiti nell’ampia gamma di facoltà che offriamo. Ogni facoltà è un mondo di opportunità, conoscenze e sfide."
+      ]
+    },
+    "LegacyLane": {
+      "hero": [
+        "LEGACY LANE:",
+        "LA NOSTRA STORIA, LA TUA FUTURA EREDITÀ",
+        "L'UNICAMPUS TELEMATICA DOVE IL TUO PERCORSO INCONTRA IL FUTURO, SENZA BARRIERE DI TEMPO O SPAZIO.",
+        "Inizia il tuo viaggio"
+      ],
+      "about": [
+        "UN SOGNO NATO A GINEVRA",
+        "Nel cuore pulsante di Ginevra, dove le acque del Lago Lemano si mescolano con l’eco delle montagne svizzere, è nato un sogno chiamato HETG. Questo non era un semplice UniCampus, ma un’idea rivoluzionaria. Un luogo dove le barriere geografiche e temporali si dissolvono, dando spazio a un campus digitale senza confini. Con ogni anno che passava, HETG cresceva, trasformando le sfide in opportunità e accogliendo studenti da ogni angolo del mondo. La nostra storia non è solo una cronologia di date e eventi, ma un mosaico di storie, sogni e aspirazioni di coloro che hanno creduto in una visione d’istruzione più inclusiva e innovativa. E mentre guardiamo al futuro, onoriamo le nostre radici, sapendo che ogni passo fatto finora ci guida verso nuovi orizzonti.",
+        "UN ORIZZONTE SENZA FINE",
+        "Nel vasto panorama dell’istruzione, HETG ha sempre guardato oltre l’orizzonte visibile. La nostra visione non è stata mai limitata dalle aule tradizionali o dai confini geografici. Abbiamo sognato un mondo in cui l’istruzione fosse come l’aria che respiriamo: accessibile a tutti, ovunque, in ogni momento. Un mondo in cui ogni individuo, indipendentemente dalla sua storia o dalle sue circostanze, potesse accedere alle chiavi del sapere e trasformare il proprio futuro. Questa visione è diventata la nostra missione, il faro che guida ogni nostra decisione. In HETG, non vediamo solo studenti, ma visionari, pionieri e innovatori pronti a cambiare il mondo. E siamo qui per assicurarci che abbiano tutti gli strumenti per farlo."
+      ],
+      "staff": ["Scopri il management"]
+    },
+    "StudentCentral": {
+      "hero": [
+        "STUDENT CENTRAL:",
+        "IL TUO PUNTO DI RIFERIMENTO IN HETG",
+        "TUTTE LE RISORSE E LE INFORMAZIONI DI CUI HAI BISOGNO, IN UN UNICO LUOGO.",
+        "Accedi al portale"
+      ],
+      "contatti": [
+        "Sempre insieme a te",
+        "Tutte le informazioni per guidarti all'interno di UniCampus HETG.",
+        "Contatti utili"
+      ],
+      "faq": [
+        "CHIARIMENTI AL TUO SERVIZIO: LE RISPOSTE CHE CERCHI.",
+        "NEL CORSO DEL TUO VIAGGIO ACCADEMICO CON HETG, POTRESTI AVERE DOMANDE O CURIOSITÀ. ECCO PERCHÉ ABBIAMO RACCOLTO LE DOMANDE PIÙ FREQUENTI POSTE DALLA NOSTRA COMUNITÀ STUDENTESCA E FORNITO RISPOSTE CHIARE E DIRETTE. QUESTA SEZIONE È STATA CREATA PENSANDO A TE, PER AIUTARTI A NAVIGARE CON SICUREZZA NEL TUO PERCORSO DI STUDI. SE NON TROVI LA RISPOSTA CHE STAI CERCANDO, RICORDA: SIAMO SEMPRE QUI PER AIUTARTI."
+      ],
+      "staff": ["Esplora l'Area Staff"]
+    },
+    "Orientamento": {
+      "content": [
+        "ORIENTA TUO FUTURO:\nRICHIEDI IL TUO CONSULENTE PERSONALE IN HETG",
+        "In HETG, sappiamo che ogni imprenditore, amministratore e leader ha un percorso unico, una storia personale e professionale che lo ha portato fin qui. Ma capiamo anche che scegliere il giusto percorso accademico può essere una decisione cruciale e talvolta complessa.\nEcco perché offriamo un servizio di orientamento personalizzato, pensato appositamente per te. Compilando il form, avrai l’opportunità di essere affiancato da un consulente dedicato, che ti guiderà attraverso le molteplici opportunità offerte da HETG, aiutandoti a identificare il percorso di studi che meglio risponde alle tue ambizioni e al tuo background. La tua storia e la tua esperienza sono preziose; lascia che ti aiutiamo a trasformarle in un luminoso futuro accademico e professionale.",
+        "Accedi al portale"
+      ]
+    },
+    "corsiList": {
+      "triennale": {
+        "title": "Triennali",
+        "body": "Laurea Triennale (Bachelor’s Degree) in "
+      },
+      "magistrale": {
+        "title": "Magistrali",
+        "body": " Laurea Magistrale (Master’s Degree) in "
+      },
+      "phd": {
+        "title": "Ph.D.",
+        "body": "Dottorato di Ricerca (Ph.D.) in "
+      },
+      "masterI": {
+        "title": "Master di I livello",
+        "body": "Master di I livello in: "
+      },
+      "masterII": {
+        "title": "Master di II livello",
+        "body": "Master di II livello in: "
+      },
+      "masterExecutive": {
+        "title": "Master Executive",
+        "body": "Master Executive in: "
+      },
+      "perfezionamento": {
+        "title": "Corsi di Alta Formazione",
+        "body": "Perfezionamento in: "
+      },
+      "academy": {
+        "title": "Corsi Academy",
+        "body": "Academy in: "
+      }
+    },
+    "Linktree": {
+      "titoloSezione": "Hai 2 modalità di accesso ai corsi",
+      "link1": {
+        "testo": "Accedi alla Piattaforma 1",
+        "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=638364333136396928.MjQ0YmU5OGEtMzNmOC00ZTIwLTljYWYtYmI0MTZiYTIzNzQwNjUxYzUyNGMtNjliZi00MzZlLTg1MjktMzJiZDhiMjgzNTFi&ui_locales=it-IT&mkt=it-IT&client-request-id=44908df9-73ed-46e7-96ba-d62fa4a23109&state=8xdz3VttBbrkUpXGseCBV9LKQ4-8eAA4nx_hJPhODEj09o2emuqFP76PZrmNZjeo448eI1lwY4JVri7WkcFhh8xpFmQHlixe1ugcNMGwCtViyQsrfNKfZwwj-q5-6HHzaoSl5LjYGRRagFua6seLbrrlJ4iyodwOG6dwvBEWwMgTvQvSBPFqzQDxsgFBXhJ51fBjtqQTGZBTO16l1VFnQvEmQXVcuEZOlqKbkjX0suehvjG-KzDWn7lEaeO-zSB7FZsh01TyfBkSdYdzAPy_eXvJoI3cfej5gMtXCzGNRic&x-client-SKU=ID_NET6_0&x-client-ver=6.30.1.0&sso_reload=true"
+      },
+      "link2": {
+        "testo": "Accedi alla Piattaforma 2",
+        "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=4765445b-32c6-49b0-83e6-1d93765276ca&redirect_uri=https%3A%2F%2Fwww.office.com%2Flandingv2&response_type=code%20id_token&scope=openid%20profile%20https%3A%2F%2Fwww.office.com%2Fv2%2FOfficeHome.All&response_mode=form_post&nonce=638364333136396928.MjQ0YmU5OGEtMzNmOC00ZTIwLTljYWYtYmI0MTZiYTIzNzQwNjUxYzUyNGMtNjliZi00MzZlLTg1MjktMzJiZDhiMjgzNTFi&ui_locales=it-IT&mkt=it-IT&client-request-id=44908df9-73ed-46e7-96ba-d62fa4a23109&state=8xdz3VttBbrkUpXGseCBV9LKQ4-8eAA4nx_hJPhODEj09o2emuqFP76PZrmNZjeo448eI1lwY4JVri7WkcFhh8xpFmQHlixe1ugcNMGwCtViyQsrfNKfZwwj-q5-6HHzaoSl5LjYGRRagFua6seLbrrlJ4iyodwOG6dwvBEWwMgTvQvSBPFqzQDxsgFBXhJ51fBjtqQTGZBTO16l1VFnQvEmQXVcuEZOlqKbkjX0suehvjG-KzDWn7lEaeO-zSB7FZsh01TyfBkSdYdzAPy_eXvJoI3cfej5gMtXCzGNRic&x-client-SKU=ID_NET6_0&x-client-ver=6.30.1.0&sso_reload=true"
+      }
+    }
+  },
+  "en": {},
+  "fr": {}
+}

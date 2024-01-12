@@ -11,7 +11,9 @@ import {
   ListItemButton,
   Snackbar,
   TextField,
-  Typography,Select,MenuItem
+  Typography,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { aggiungiDocenti } from "../../Firebase/AggiornamentoCopy";
 import { getDocenti } from "../../Firebase/RecuperoCopy";
@@ -22,7 +24,7 @@ export function AdminDocenti() {
   const location = useLocation();
   const atDetailPage = location.pathname !== "/admin/docenti";
   const [docenti, setDocenti] = React.useState(null);
-  const [nome, setNome] = React.useState("");
+  const [nomeCognome, setNomeCognome] = React.useState([" ", " "]);
   const [descrizione, setDescrizione] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [feed, setFeed] = React.useState("");
@@ -49,8 +51,8 @@ export function AdminDocenti() {
 
   const handleAggiungiClick = async () => {
     try {
-      if (nome !== "" && descrizione !== "") {
-        await aggiungiDocenti(nome, descrizione).then(() => {
+      if (nomeCognome[0] !== "" && descrizione !== "") {
+        await aggiungiDocenti(nomeCognome, descrizione).then(() => {
           setOpen(true);
           setFeed("Docenti aggiunta con successo");
           fetchDocenti();
@@ -89,8 +91,15 @@ export function AdminDocenti() {
           <TextField
             fullWidth
             label="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)} // Aggiorna lo stato quando l'input cambia
+            value={nomeCognome[1]}
+            onChange={(e) => setNomeCognome([nomeCognome[0], e.target.value])} // Aggiorna lo stato quando l'input cambia
+          />
+          <br />
+          <TextField
+            fullWidth
+            label="Cognome"
+            value={nomeCognome[0]}
+            onChange={(e) => setNomeCognome([e.target.value, nomeCognome[1]])} // Aggiorna lo stato quando l'input cambia
           />
           <br />
           <TextField
@@ -100,7 +109,7 @@ export function AdminDocenti() {
             multiline
             onChange={(e) => setDescrizione(e.target.value)} // Aggiorna lo stato quando l'input cambia
           />
-          <br/>
+          <br />
           <br />
           <Button variant="contained" fullWidth onClick={handleAggiungiClick}>
             Aggiungi
@@ -110,19 +119,21 @@ export function AdminDocenti() {
           <br />
           <List>
             {docenti &&
-              docenti.sort((a, b) => a.nome.localeCompare(b.nome)).map((f, index) => (
-                <React.Fragment key={f.id}>
-                  <ListItem disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(f.id)}>
-                      <ListItemText primary={f.nome} />
-                      <ArrowForwardIosIcon fontSize="small" />{" "}
-                      {/* Aggiunta dell'icona */}
-                    </ListItemButton>
-                  </ListItem>
-                  {index !== docenti.length - 1 && <Divider />}{" "}
-                  {/* Aggiunge Divider eccetto che dopo l'ultimo elemento */}
-                </React.Fragment>
-              ))}
+              docenti
+                .sort((a, b) => a.nome.localeCompare(b.nome))
+                .map((f, index) => (
+                  <React.Fragment key={f.id}>
+                    <ListItem disablePadding>
+                      <ListItemButton onClick={() => handleListItemClick(f.id)}>
+                        <ListItemText primary={f.nome} />
+                        <ArrowForwardIosIcon fontSize="small" />{" "}
+                        {/* Aggiunta dell'icona */}
+                      </ListItemButton>
+                    </ListItem>
+                    {index !== docenti.length - 1 && <Divider />}{" "}
+                    {/* Aggiunge Divider eccetto che dopo l'ultimo elemento */}
+                  </React.Fragment>
+                ))}
           </List>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="info" sx={{ width: "100%" }}>

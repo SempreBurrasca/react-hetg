@@ -1,0 +1,42 @@
+{
+    "it": {
+      "contatti": {
+        "header": "Segreteria degli studenti",
+        "telefono": {
+          "label": "Telefono (per chi chiama dall'Italia):",
+          "numero": "+39 (351) 813-4963"
+        },
+        "email": {
+          "label": "Email:",
+          "indirizzo": "segreteria@unicampushetg.ch"
+        }
+      }
+    },
+    "en": {
+      "contatti": {
+        "header": "Student Secretariat",
+        "telefono": {
+          "label": "Phone (for calls from Italy):",
+          "numero": "+39 (351) 813-4963"
+        },
+        "email": {
+          "label": "Email:",
+          "indirizzo": "segreteria@unicampushetg.ch"
+        }
+      }
+    },
+    "fr": {
+      "contatti": {
+        "header": "Secrétariat des étudiants",
+        "telefono": {
+          "label": "Téléphone (pour les appels de l'Italie):",
+          "numero": "+39 (351) 813-4963"
+        },
+        "email": {
+          "label": "Email:",
+          "indirizzo": "segreteria@unicampushetg.ch"
+        }
+      }
+    }
+  }
+  

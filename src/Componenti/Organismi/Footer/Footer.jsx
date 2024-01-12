@@ -31,7 +31,7 @@ export function Footer() {
     };
   }, []);
   useEffect(() => {
-    fetch("/copy/footer.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -40,22 +40,9 @@ export function Footer() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setCopy(data.it);
-      })
-      .catch((error) => {
-        console.error("Error fetching the copy data:", error);
-      });
-
-    fetch("/copy/links.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setLinks(data.it);
+        setCopy({footer:data.it.footer});
+        setLinks(data.it.links);
+        console.log(copy)
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);

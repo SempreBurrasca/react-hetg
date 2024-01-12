@@ -19,7 +19,7 @@ export function Orientamento() {
     linkedin: "#",
   });
   useEffect(() => {
-    fetch("/copy/orientamento.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -28,13 +28,13 @@ export function Orientamento() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setCopy(data.it);
+        setCopy(data.it.Orientamento);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);
       });
 
-      fetch("/copy/links.json")
+      fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -43,7 +43,7 @@ export function Orientamento() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setLinks(data.it);
+        setLinks(data.it.links);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);

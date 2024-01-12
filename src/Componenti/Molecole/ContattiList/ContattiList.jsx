@@ -1,12 +1,25 @@
-import React, { useState, useRef } from "react";
-import "./contattilist.scss";
+import React, { useState, useRef, useEffect } from 'react';
+import './contattilist.scss';
+
 export function ContattiList() {
   const wrapperRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
+  const [contatti, setContatti] = useState(null); // Initialize to null
 
-  const handleMouseDown = (e) => {
+  useEffect(() => {
+    fetch('/copy/contattilist.json')
+      .then(response => response.json())
+      .then(data => {
+        setContatti(data.it.contatti); // Populate the state with the fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching the contact data:', error);
+      });
+  }, []);
+
+  const handleMouseDown = e => {
     setIsDragging(true);
     setStartPos(e.clientY);
     setScrollTop(wrapperRef.current.scrollTop);
@@ -20,13 +33,17 @@ export function ContattiList() {
     setIsDragging(false);
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = e => {
     if (!isDragging) return;
     e.preventDefault();
     const y = e.clientY;
     const walk = y - startPos;
     wrapperRef.current.scrollTop = scrollTop - walk;
   };
+
+  if (!contatti) {
+    return <div>Loading...</div>; // Display loading message or spinner while the data is being fetched
+  }
 
   return (
     <div
@@ -38,12 +55,11 @@ export function ContattiList() {
       onMouseMove={handleMouseMove}
     >
       <div>
-        <h4>Segreteria degli studenti</h4>
-        <span>Telefono (per chi chiama dall'Italia): <br/>+39 (351) 813-4963</span>
-        <span>Email: segreteria@unicampushetg.ch</span>
+        <h4>{contatti.header}</h4>
+        <span>{contatti.telefono.label} <br/>{contatti.telefono.numero}</span>
+        <span>{contatti.email.label}: {contatti.email.indirizzo}</span>
         <div className="divider" />
       </div>
-
     </div>
   );
 }

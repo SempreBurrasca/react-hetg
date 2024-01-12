@@ -118,7 +118,10 @@ export function StudentCentral() {
                   className="staff-cta"
                   onClick={() => navigate("/person/" + person.id)}
                 >
-                  <span>{person.nome}</span>
+                  <span>       {" "}
+                    {person.titolo ? person.titolo : "Prof."}{" "}
+                    {person.nomeCognome[1].trim()}{" "}
+                    {person.nomeCognome[0].trim()}</span>
                   <img className="arrow" src={arrow_right} />
                 </div>
               </div>

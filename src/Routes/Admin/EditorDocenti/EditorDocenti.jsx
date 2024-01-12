@@ -40,8 +40,9 @@ export function EditorDocenti(props) {
   const [error, setError] = useState(null);
 
   // Inizializza gli stati a stringa vuota o null
-  const [nome, setNome] = useState("");
+  const [nomeCognome, setNomeCognome] = useState([" ", " "]);
   const [ruolo, setRuolo] = useState("");
+  const [titolo,setTitolo]=useState("")
   const [descrizione, setDescrizione] = useState("");
   const [tipo, setTipo] = useState("");
   const [open, setOpen] = useState(false);
@@ -55,12 +56,13 @@ export function EditorDocenti(props) {
         const docentiData = await getDocentiById(docentiId);
         setDocenti(docentiData);
         // Inizializza gli stati qui dopo aver caricato docentiData
-        setNome(docentiData.nome || "");
+        setNomeCognome(
+          [docentiData.nomeCognome[0], docentiData.nomeCognome[1]] || [" ", " "]
+        );
         setRuolo(docentiData.ruolo || "");
         setDescrizione(docentiData.descrizione || "");
         setTipo(docentiData.tipo || "");
-        setImagePreview(docentiData.imageUrl||"")
-
+        setImagePreview(docentiData.imageUrl || "");
       } catch (err) {
         console.error("Errore durante il recupero della docenti:", err);
         setError(err);
@@ -87,8 +89,7 @@ export function EditorDocenti(props) {
   }
 
   const handleImageChange = (e) => {
-    handleImageUpload(e,setOpen,setFeed,setImagePreview)
-    
+    handleImageUpload(e, setOpen, setFeed, setImagePreview);
   };
 
   const handleClose = (event, reason) => {
@@ -100,10 +101,16 @@ export function EditorDocenti(props) {
   };
 
   const handleNomeChange = (event) => {
-    setNome(event.target.value);
+    setNomeCognome([nomeCognome[0], event.target.value]);
+  };
+  const handleCognomeChange = (event) => {
+    setNomeCognome([event.target.value, nomeCognome[1]]);
   };
   const handleRuoloChange = (event) => {
     setRuolo(event.target.value);
+  };
+  const handleTitoloChange = (event) => {
+    setTitolo(event.target.value);
   };
 
   const handleDescrizoneChange = (event) => {
@@ -116,10 +123,12 @@ export function EditorDocenti(props) {
       setOpen(true);
       await aggiornaDocenti(docenti.id, {
         ...docenti,
-        nome: nome,
-        ruolo:ruolo,
+        nome: nomeCognome[1] + " " + nomeCognome[0],
+        nomeCognome: nomeCognome,
+        ruolo: ruolo,
+        titolo:titolo,
         descrizione: descrizione,
-        imageUrl:imagePreview
+        imageUrl: imagePreview,
       }).then(() => {
         setFeed("Docenti aggiornata con successo!");
         setOpen(true);
@@ -131,10 +140,12 @@ export function EditorDocenti(props) {
             f.id === docenti.id
               ? {
                   ...f,
-                  nome: nome,
+                  nome: nomeCognome[1] + " " + nomeCognome[0],
+                  nomeCognome: nomeCognome,
                   descrizione: descrizione,
+                  titolo:titolo,
                   tipo: tipo,
-                  imageUrl:imagePreview
+                  imageUrl: imagePreview,
                 }
               : f
           );
@@ -167,26 +178,43 @@ export function EditorDocenti(props) {
         >
           Docenti
         </Link>
-        <Typography color="text.primary">{nome}</Typography>
+        <Typography color="text.primary">
+          {" "}
+          {nomeCognome[1] + " " + nomeCognome[0]}
+        </Typography>
       </Breadcrumbs>
       <Typography variant="h6" gutterBottom>
-        {nome}
+        {nomeCognome[1] + " " + nomeCognome[0]}
       </Typography>
       <TextField
         label="Nome"
         fullWidth
-        value={nome}
+        value={nomeCognome[1]}
         onChange={handleNomeChange}
         margin="normal"
       />
-            <TextField
+      <TextField
+        label="Cognome"
+        fullWidth
+        value={nomeCognome[0]}
+        onChange={handleCognomeChange}
+        margin="normal"
+      />
+      <TextField
         label="Ruolo"
         fullWidth
         value={ruolo}
         onChange={handleRuoloChange}
         margin="normal"
       />
-     
+            <TextField
+        label="Titolo"
+        fullWidth
+        value={titolo}
+        onChange={handleTitoloChange}
+        margin="normal"
+      />
+
       <TextField
         label="Descrizione"
         multiline
@@ -202,7 +230,12 @@ export function EditorDocenti(props) {
         margin="normal"
       >
         Upload Immagine
-        <VisuallyHiddenInput type="file"  accept="image/gif, image/jpeg, image/png" name="myFile"  onChange={handleImageChange} />
+        <VisuallyHiddenInput
+          type="file"
+          accept="image/gif, image/jpeg, image/png"
+          name="myFile"
+          onChange={handleImageChange}
+        />
       </Button>
       {imagePreview && (
         <Box margin="normal">

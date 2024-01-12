@@ -13,6 +13,19 @@ export function CorsiList(props) {
   const [scrollTop, setScrollTop] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
   const [corsi, setCorsi] = useState([]);
+  const [copy,setCopy]=useState(null);
+
+  useEffect(() => {
+    fetch('https://unicampushetg.ch/copy/copy.json')
+      .then(response => response.json())
+      .then(data => {
+        setCopy(data.it.corsiList); 
+      })
+      .catch(error => {
+        console.error('Error fetching the contact data:', error);
+      });
+  }, []);
+
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartPos(e.clientY);
@@ -77,6 +90,11 @@ export function CorsiList(props) {
 
     getAllCorsi();
   }, [facoltaNome]);
+
+  if (!copy) {
+    return <div>Loading...</div>; // Display loading message or spinner while the data is being fetched
+  }
+
   return (
     <div
       className="corsi-wrapper"
@@ -88,13 +106,13 @@ export function CorsiList(props) {
     >
       <div className={activeIndex === "triennale" ? "active" : ""}>
         <div onClick={() => handleToggle("triennale")}>
-          <h4>Triennali</h4> <img className="arrow" src={arrow_right} />
+          <h4>{copy.triennale.title}</h4> <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "triennale" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Laurea Triennale (Bachelor’s Degree) in {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.triennale.body} {c.nome}</p>
               </div>
             )
         )}
@@ -103,14 +121,14 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "magistrale" ? "active" : ""}>
         <div onClick={() => handleToggle("magistrale")}>
-          <h4>Magistrali</h4> <img className="arrow" src={arrow_right} />
+          <h4>{copy.magistrale.title}</h4> <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "magistrale" && (
               <div className="risposta" key={c.id + "-" + index}>
                 <p onClick={() => navigate("/corso/" + c.id)}>
-                  Laurea Magistrale (Master’s Degree) in {c.nome}
+                {copy.magistrale.body} {c.nome}
                 </p>
               </div>
             )
@@ -120,13 +138,13 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "phd" ? "active" : ""}>
         <div onClick={() => handleToggle("phd")}>
-          <h4>Ph.D.</h4> <img className="arrow" src={arrow_right} />
+          <h4>{copy.phd.title}</h4> <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "phd" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Dottorato di Ricerca (Ph.D.) in {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.phd.body} {c.nome}</p>
               </div>
             )
         )}
@@ -135,14 +153,14 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "master-i" ? "active" : ""}>
         <div onClick={() => handleToggle("master-i")}>
-          <h4>Master di I livello</h4>{" "}
+          <h4>{copy.masterI.title}</h4>{" "}
           <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "master-i" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Master di I livello in: {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.masterI.body} {c.nome}</p>
               </div>
             )
         )}
@@ -151,14 +169,14 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "master-ii" ? "active" : ""}>
         <div onClick={() => handleToggle("master-ii")}>
-          <h4>Master di II livello</h4>{" "}
+          <h4>{copy.masterII.title}</h4>{" "}
           <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "master-ii" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Master di II livello in: {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.masterII.body} {c.nome}</p>
               </div>
             )
         )}
@@ -167,13 +185,13 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "master-ex" ? "active" : ""}>
         <div onClick={() => handleToggle("master-ex")}>
-          <h4>Master Executive</h4> <img className="arrow" src={arrow_right} />
+          <h4>{copy.masterExecutive.title}</h4> <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "master-ex" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Master Executivein: {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.masterExecutive.body} {c.nome}</p>
               </div>
             )
         )}
@@ -182,14 +200,14 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "perfezionamento" ? "active" : ""}>
         <div onClick={() => handleToggle("perfezionamento")}>
-          <h4>Corsi di Alta Formazione</h4>{" "}
+          <h4>{copy.perfezionamento.title}</h4>{" "}
           <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "perfezionamento" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Perfezionamento in: {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.perfezionamento.body} {c.nome}</p>
               </div>
             )
         )}
@@ -198,13 +216,13 @@ export function CorsiList(props) {
 
       <div className={activeIndex === "academy" ? "active" : ""}>
         <div onClick={() => handleToggle("academy")}>
-          <h4>Corsi Academy</h4> <img className="arrow" src={arrow_right} />
+          <h4>{copy.academy.title}</h4> <img className="arrow" src={arrow_right} />
         </div>
         {corsi.map(
           (c, index) =>
             c.tipo === "academy" && (
               <div className="risposta" key={c.id + "-" + index}>
-                <p onClick={() => navigate("/corso/" + c.id)}>Academy in: {c.nome}</p>
+                <p onClick={() => navigate("/corso/" + c.id)}>{copy.academy.body} {c.nome}</p>
               </div>
             )
         )}

@@ -21,7 +21,7 @@ export function Form() {
   });
 
   useEffect(() => {
-    fetch("/copy/form.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -29,7 +29,7 @@ export function Form() {
         return response.json();
       })
       .then((data) => {
-        setCopy(data.it);
+        setCopy(data.it.form);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);
@@ -90,23 +90,45 @@ export function Form() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formDataPhp = new FormData();
     if (validateForm()) {
       try {
         await addDoc(collection(db, "contatti"), {
           ...formData,
           timestamp: serverTimestamp(), // Aggiungi il timestamp qui
         });
-        setFeedback("Dati inviati con successo!");
-        // Pulisci il form qui se necessario
-        setFormData({
-          nome: "",
-          cognome: "",
-          email: "",
-          telefono: "",
-          corso: "",
-          messaggio: "",
-          privacy: false,
-        });
+
+        formDataPhp.append("nome", formData.nome);
+        formDataPhp.append("cognome", formData.cognome);
+        formDataPhp.append("email", formData.email);
+        formDataPhp.append("telefono", formData.telefono);
+        formDataPhp.append("corso", formData.corso);
+        formDataPhp.append("messaggio", formData.messaggio);
+
+        const response = await fetch(
+          "https://unicampushetg.ch/api/sendMail.php",
+          {
+            method: "POST",
+            body: formDataPhp,
+          }
+        );
+        if (response.ok) {
+          // Il tuo codice per la gestione della risposta di successo
+          setFeedback("Dati inviati con successo!");
+          // Pulisci il form qui se necessario
+          setFormData({
+            nome: "",
+            cognome: "",
+            email: "",
+            telefono: "",
+            corso: "",
+            messaggio: "",
+            privacy: false,
+          });
+        } else {
+          // Gestisci la risposta di errore
+          throw new Error("Errore durante l'invio dei dati.");
+        }
       } catch (error) {
         console.error("Errore durante il salvataggio dei dati:", error);
         setFeedback("Errore durante l'invio dei dati.");
@@ -182,7 +204,7 @@ export function Form() {
             className="iubenda-white no-brand iubenda-noiframe iubenda-embed"
             title="Privacy Policy"
           >
-            Accetto la Privacy Policy
+            {copy.privacy}
           </a>
         </label>
       </div>

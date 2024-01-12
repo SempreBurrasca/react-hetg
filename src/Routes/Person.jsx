@@ -117,7 +117,15 @@ export function Person() {
     <main id="person">
       <section className="hero-section">
         <div className="content">
-          <h2>{person?.nome || "Nome non disponibile"}</h2>
+          <h2>
+            {
+              person?.titolo?person.titolo:"Prof."
+            }
+            {" "}
+            {
+              person?.nomeCognome?person.nomeCognome[1]+" "+person.nomeCognome[0]:person.nome
+            }
+            </h2>
           <h3>Ruolo: {person?.ruolo}</h3>
           <Button
           style={{
@@ -125,7 +133,7 @@ export function Person() {
             display:"flex",
           }}
             borderradius="bottom-left-radius top-left-radius bottom-right-radius top-right-radius"
-            path={"/uploads/cv/" + person.nome.replace(/\s+/g, '-') + "_CV.pdf"}
+            path={"/uploads/cv/" + person.id+ ".pdf"}
             angleposition={{ overTopRight: false, underBottomRight: false }}
             isExternal
           >

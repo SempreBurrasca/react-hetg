@@ -57,20 +57,32 @@ export function StaffManagement() {
           // In base all'activeTab attuale, imposta l'ordine corrente
           switch (activeTab) {
             case "Senato Accademico":
-              setCurrentOrder(ordiniData.senatoAccademico.split(",").map(item => item.trim()));
+              setCurrentOrder(
+                ordiniData.senatoAccademico
+                  .split(",")
+                  .map((item) => item.trim())
+              );
               break;
             case "Nucleo di Valutazione":
-              setCurrentOrder(ordiniData.nucleoDiValutazione.split(",").map(item => item.trim()));
+              setCurrentOrder(
+                ordiniData.nucleoDiValutazione
+                  .split(",")
+                  .map((item) => item.trim())
+              );
               break;
             case "Commissione Qualità":
-              setCurrentOrder(ordiniData.commissioneQualita.split(",").map(item => item.trim()));
+              setCurrentOrder(
+                ordiniData.commissioneQualita
+                  .split(",")
+                  .map((item) => item.trim())
+              );
               break;
             default:
               setCurrentOrder([]); // Imposta l'ordine corrente come vuoto per le altre schede
               break;
           }
         }
-        console.log(currentOrder)
+        console.log(currentOrder);
       } catch (error) {
         console.error("Errore durante il recupero degli Ordini:", error);
       } finally {
@@ -100,7 +112,6 @@ export function StaffManagement() {
   //Recupera Staff e Docenti
   useEffect(() => {
     fetchStaffAndDocenti();
-    // Recupera il file JSON da public/copy
   }, []);
   const fetchStaffAndDocenti = async () => {
     try {
@@ -204,10 +215,9 @@ export function StaffManagement() {
                     onClick={() => navigate("/person/" + person.id)}
                   >
                     <span>
-                      {person.id !== "TNAN5JWXX59oAw9VW0Qg"
-                        ? "Prof. "
-                        : "Dott. "}
-                      {person.nome.trim()}
+                      {person.titolo ? person.titolo : "Prof."}{" "}
+                      {person.nomeCognome[1].trim()}{" "}
+                      {person.nomeCognome[0].trim()}
                     </span>
                     <img className="arrow" src={arrow_right} />
                   </div>
@@ -220,7 +230,7 @@ export function StaffManagement() {
         <PlusIcon isRed style={{ gridColumn: 9, gridRow: 4 }} />
         <PlusIcon isRed style={{ gridColumn: 12, gridRow: 4 }} />
       </section>
-
+      {/*Segreteria*/}
       <section className="staff-section">
         <h2>{copy.staff[2]}</h2>
         <div className="cards-container">
@@ -237,7 +247,12 @@ export function StaffManagement() {
                   className="staff-cta"
                   onClick={() => navigate("/person/" + person.id)}
                 >
-                  <span>{person.nome}</span>
+                  <span>
+                    {" "}
+                    {person.titolo ? person.titolo : "Prof."}{" "}
+                    {person.nomeCognome[1].trim()}{" "}
+                    {person.nomeCognome[0].trim()}
+                  </span>
                   <img className="arrow" src={arrow_right} />
                 </div>
               </div>
@@ -249,32 +264,42 @@ export function StaffManagement() {
         <h2>Presidi di Facoltà</h2>
         <div className="cards-container">
           {docenti
-            .filter((person) => person.ruolo?.includes("Preside Facoltà"))
+            .filter((person) => person.ruolo?.includes("Preside della Facoltà"))
             .map((person) => (
               <div className="staff-wrapp">
-                <span>
-                  {person.ruolo
-                    .split("-")
-                    .find((r) => r.includes("Preside Facoltà"))}
-                </span>
                 <div
                   className="staff-card"
                   key={person.id}
                   style={{ backgroundImage: "url(" + person.imageUrl + ")" }}
                 >
-                  {/* Presumo che l'oggetto person abbia una proprietà nome */}
                   <div
                     className="staff-cta"
                     onClick={() => navigate("/person/" + person.id)}
                   >
-                    <span>Prof. {person.nome}</span>
+                    <span>
+                      Prof. {person.nomeCognome[1]} {person.nomeCognome[0]}
+                    </span>
                     <img className="arrow" src={arrow_right} />
                   </div>
                 </div>
+                <span
+                  style={{
+                    maxWidth: "200px",
+                    textAlign: "center",
+                    fontSize: "12px",
+                  }}
+                >
+                  {person.ruolo
+                    .split("-")
+                    .find((r) => r.includes("Preside della Facoltà"))
+
+                    .trim()}
+                </span>
               </div>
             ))}
         </div>
       </section>
+
       <section className="staff-section">
         <h2>{copy.staff[1]}</h2>
         <div className="cards-container">
@@ -316,7 +341,9 @@ export function StaffManagement() {
                       >
                         {" "}
                         {/* Cambia il percorso come necessario */}
-                        <span>Prof. {person.nome}</span>
+                        <span>
+                          Prof. {person.nomeCognome[1]} {person.nomeCognome[0]}
+                        </span>
                         <img className="arrow" src={arrow_right} />
                       </div>
                     </div>

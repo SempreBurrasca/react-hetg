@@ -23,7 +23,7 @@ export function StudentCentralMobile() {
   }, []);
  
   React.useEffect(() => {
-    fetch("/copy/studentcentral.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -32,7 +32,7 @@ export function StudentCentralMobile() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setCopy(data.it);
+        setCopy(data.it.StudentCentral);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);

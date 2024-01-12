@@ -21,7 +21,7 @@ export function FormLavora() {
   });
 
   useEffect(() => {
-    fetch("/copy/form.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -29,7 +29,7 @@ export function FormLavora() {
         return response.json();
       })
       .then((data) => {
-        setCopy(data.it);
+        setCopy(data.it.form);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);
@@ -171,7 +171,7 @@ export function FormLavora() {
             className="iubenda-white no-brand iubenda-noiframe iubenda-embed"
             title="Privacy Policy"
           >
-            Accetto la Privacy Policy
+            {copy.privacy}
           </a>
         </label>
       </div>

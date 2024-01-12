@@ -53,7 +53,7 @@ export function Nav(props) {
               </li>
               <li
                 className="menu-item"
-                onClick={() => window.open('http://www.eit-ateneo.org')}
+                onClick={() => navigate("/universita-americana")}
               >
                 {copy.header[12]}{" "}
               </li>

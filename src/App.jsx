@@ -40,6 +40,7 @@ import { Person } from "./Routes/Person";
 import { Linktree } from "./Routes/Linktree";
 import { LavoraConNoi } from "./Routes/LavoraConNoi";
 import { Accreditamento } from "./Routes/Accreditamento";
+import { UniAmericana } from "./Routes/UniAmericana";
 
 function App() {
   const location = useLocation();
@@ -74,6 +75,10 @@ function App() {
           <Route
             path="/gateway-growth"
             element={isMobile ? <GatewayToGrowthMobile /> : <GatewayToGrowth />}
+          />
+              <Route
+            path="/universita-americana"
+            element={<UniAmericana/>}
           />
           <Route path="/person/:personId" element={<Person />} />
           <Route path="/contattaci" element={<Contattaci />} />

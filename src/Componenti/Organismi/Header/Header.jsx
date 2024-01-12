@@ -23,7 +23,7 @@ export function Header() {
   const paginaId = "ESC5PlPkVuTTq875tAqj";
   useEffect(() => {
     setIsMenuActive(false);
-    fetch("/copy/header.json")
+    fetch("/copy/copy.json") 
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -32,13 +32,13 @@ export function Header() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setCopy(data.it);
+        setCopy({header:data.it.header});
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);
       });
 
-    fetch("/copy/links.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -47,7 +47,7 @@ export function Header() {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setLinks(data.it);
+        setLinks(data.it.links);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);
@@ -140,7 +140,7 @@ useEffect(()=>{
               </li>
               <li
                 className="menu-item"
-                onClick={() => window.open('http://www.eit-ateneo.org')}
+                onClick={() => handleNavigate("/universita-americana")}
               >
                 {copy.header[12]}{" "}
               </li>

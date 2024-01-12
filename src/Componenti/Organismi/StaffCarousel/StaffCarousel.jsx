@@ -113,7 +113,7 @@ export function StaffCarousel(props) {
               >
                 {" "}
                 {/* Cambia il percorso come necessario */}
-                <span>{person.nome}</span>
+                <span>{person.nomeCognome[1]}{" "}{person.nomeCognome[0]}</span>
                 <img className="arrow" src={arrow_right} />
               </div>
             </div>

@@ -8,7 +8,7 @@ export function StaffSezione(props) {
   const navigate = useNavigate();
   const [copy, setCopy] = React.useState(null);
   useEffect(() => {
-    fetch("/copy/sezionestaff.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -17,7 +17,7 @@ export function StaffSezione(props) {
       })
       .then((data) => {
         // Imposta lo stato con i dati per la lingua italiana (o qualsiasi altra logica di selezione della lingua)
-        setCopy(data.it);
+        setCopy(data.it.StaffSezione);
       })
       .catch((error) => {
         console.error("Error fetching the copy data:", error);

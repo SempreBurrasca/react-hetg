@@ -1,0 +1,39 @@
+{
+    "it": {
+      "corsiList": {
+        "triennale": {
+          "title": "Triennali",
+          "body":"Laurea Triennale (Bachelor’s Degree) in "
+        },
+        "magistrale": {
+          "title": "Magistrali",
+          "body":" Laurea Magistrale (Master’s Degree) in "
+        },
+        "phd": {
+          "title": "Ph.D.",
+          "body":"Dottorato di Ricerca (Ph.D.) in "
+        },
+        "masterI": {
+          "title": "Master di I livello",
+          "body":"Master di I livello in: "
+        },
+        "masterII": {
+          "title": "Master di II livello",
+          "body":"Master di II livello in: "
+        },
+        "masterExecutive": {
+          "title": "Master Executive",
+          "body":"Master Executive in: "
+        },
+        "perfezionamento": {
+          "title": "Corsi di Alta Formazione",
+          "body":"Perfezionamento in: "
+        },
+        "academy": {
+          "title": "Corsi Academy",
+          "body":"Academy in: "
+        }
+      }
+    }
+  }
+  

@@ -154,14 +154,14 @@ export function SingleCorso() {
             )}
             <div className="divider" />
             <div className="button-container">
-              <Button
+             {!corso.notDownload&& <Button
                 borderradius="bottom-left-radius top-left-radius bottom-right-radius top-right-radius"
                 path={"/uploads/corsi/"+corso.id+".pdf"}
                 angleposition={{ overTopRight: false, underBottomRight: false }}
                 isExternal
               >
                 Download Piano di studi
-              </Button>
+              </Button>}
             </div>
           </div>
         </div>

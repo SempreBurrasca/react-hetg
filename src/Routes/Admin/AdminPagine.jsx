@@ -1,4 +1,4 @@
-import * as React from "react";
+import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getPagine } from "../../Firebase/RecuperoCopy";
@@ -39,17 +39,19 @@ function a11yProps(index) {
 
 export function AdminPagine() {
   const navigate = useNavigate();
-  const [pagine, setPagine] = React.useState(null);
-  const [value, setValue] = React.useState(0);
-  React.useEffect(() => {
-    // Altrimenti, recupera i dati e aggiorna localStorage
-    getPagine()
+  const [pagine, setPagine] = useState([]);
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    fetch("/copy/copy.json")
+      .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("pagine", JSON.stringify(data)); // Aggiorna localStorage
-        setPagine(data);
+        const mainObjects = Object.keys(data.it);
+        setPagine(mainObjects.map((key, index) => ({ id: index, nome: key })));
       })
       .catch(console.error);
   }, []);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
