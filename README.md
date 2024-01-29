@@ -98,3 +98,40 @@ const MyComponent = () => (
   </div>
 );
 ```
+
+## Configurazione di Firebase tramite File .env
+Per garantire la sicurezza e la modularità, il progetto Unicampus HETG utilizza variabili d'ambiente per gestire le configurazioni sensibili, inclusi i dettagli di configurazione di Firebase. Queste informazioni sono memorizzate in un file .env nella directory principale del progetto.
+### Creazione del File .env
+Per configurare le variabili d'ambiente di Firebase, segui questi passaggi:
+
+1. Crea un File .env: Nella root del tuo progetto, crea un file chiamato .env.
+2. Aggiungi le Variabili di Configurazione: Inserisci le tue chiavi di configurazione di Firebase nel file .env. Queste includono il tuo API Key, l'ID dell'app, l'ID del progetto, ecc. Ecco un esempio di come potrebbe apparire:
+```
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+
+```
+Assicurati che ogni variabile inizi con VITE_ per renderla accessibile in Vite.
+3. Aggiungi .env al .gitignore: Per evitare che le tue chiavi di configurazione vengano caricate su repository pubblici, assicurati di aggiungere il file .env al file .gitignore
+### Utilizzo delle Variabili di Configurazione in Firebase
+Per utilizzare queste variabili nel tuo progetto, puoi accedervi tramite import.meta.env. Ecco un esempio di come inizializzare Firebase con le variabili d'ambiente:
+```
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+// Inizializza Firebase
+const app = initializeApp(firebaseConfig);
+
+```
