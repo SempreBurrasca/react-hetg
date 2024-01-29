@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { Button } from "../Componenti/Molecole/Buttons/Button";
 import { useIsMobile } from "../Componenti/Tools/useIsMobile";
 import { useNavigate } from "react-router-dom";
 import "./contattaci.scss";
-import { CoursesCarousel } from "../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-import { getPagina } from "../Firebase/RecuperoCopy";
 import { Loader } from "../Componenti/Organismi/Loader/Loader";
-import { Form } from "../Componenti/Organismi/Form/Form";
+import { Helmet } from "react-helmet";
+
 export function Accreditamento() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
@@ -34,6 +32,10 @@ export function Accreditamento() {
   }
   return (
     <main id="contattaci">
+      <Helmet>
+        <title>Unicampus HETG</title>
+        <meta name="description" content="Unicampus HETG" />
+      </Helmet>
       <section className="document-section" id="accreditamento">
         <div className="spacer" />
         <h1>Accreditamento</h1>

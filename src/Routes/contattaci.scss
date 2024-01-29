@@ -1,6 +1,20 @@
 main {
 
+&#cerca{
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 9rem;
 
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: $dark-blu;
+      text-align: left;
+
+    }
+  }
+}
   &#contattaci {
     .hero-section {
       padding-top: 8rem!important;

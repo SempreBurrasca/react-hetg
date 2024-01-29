@@ -14,7 +14,7 @@ export function Linktree() {
   useEffect(() => {
     const fetchCopyData = async () => {
       try {
-        const response = await fetch('https://unicampushetg.ch/copy/copy.json');
+        const response = await fetch('/copy/copy.json');
         const data = await response.json();
         console.log(data.it.Linktree)
         setCopy(data.it.Linktree);

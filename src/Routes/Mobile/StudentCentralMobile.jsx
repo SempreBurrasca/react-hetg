@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
 import { Button } from "../../Componenti/Molecole/Buttons/Button";
 import { Striscia } from "../../Componenti/Molecole/Striscia/Striscia";
-import { partnersData, coursessData } from "../../assets/data";
 import { useNavigate } from "react-router-dom";
-import { CoursesCarousel } from "../../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
 import { ContattiList } from "../../Componenti/Molecole/ContattiList/ContattiList";
-import { Faq } from "../../Componenti/Molecole/Faq/Faq";
-import { getPagina, getStaff } from "../../Firebase/RecuperoCopy";
+import { getStaff } from "../../Firebase/RecuperoCopy";
 import { Loader } from "../../Componenti/Organismi/Loader/Loader";
 import "./mobile.scss";
 import { CorsiSezione } from "../../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import { StaffSezione } from "../../Componenti/Sezioni/StaffSezione/StaffSezione";
 import { OrientamentoSezione } from "../../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
 import arrow_right from "../../assets/arrow-right.png";
+import { Helmet } from "react-helmet";
 
 export function StudentCentralMobile() {
   const navigate = useNavigate();
@@ -21,7 +19,7 @@ export function StudentCentralMobile() {
   React.useEffect(() => {
     fetchStaffAndDocenti();
   }, []);
- 
+
   React.useEffect(() => {
     fetch("/copy/copy.json")
       .then((response) => {
@@ -56,6 +54,10 @@ export function StudentCentralMobile() {
   }
   return (
     <main id="student-central-m">
+      <Helmet>
+        <title>Unicampus HETG</title>
+        <meta name="description" content="Unicampus HETG" />
+      </Helmet>
       <section className="hero-section">
         <h1 className="page-title">
           <strong>{copy.hero[0]}</strong>

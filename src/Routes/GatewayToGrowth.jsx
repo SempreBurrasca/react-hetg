@@ -8,6 +8,8 @@ import { VAE } from "../Componenti/Sezioni/VAE/VAE";
 import { CorsiSezione } from "../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import { OrientamentoSezione } from "../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
 import "./gateway-growth.scss";
+import { Helmet } from "react-helmet";
+
 export function GatewayToGrowth() {
   const navigate = useNavigate();
   const [copy, setCopy] = React.useState(null);
@@ -33,6 +35,10 @@ export function GatewayToGrowth() {
   }
   return (
     <main id="gateway-growth">
+      <Helmet>
+        <title>Unicampus HETG</title>
+        <meta name="description" content="Unicampus HETG" />
+      </Helmet>
       <section className="hero-section">
         <PlusIcon style={{ gridColumn: 2, gridRow: 2 }} />
         <PlusIcon style={{ gridColumn: 7, gridRow: 2 }} />
@@ -86,7 +92,7 @@ export function GatewayToGrowth() {
         >
           {copy.about[8]}
         </Button>
-       {/* <h3 className="second">{copy.about[9]}</h3>
+        {/* <h3 className="second">{copy.about[9]}</h3>
         <p className="second">{copy.about[10]}</p>*/}
       </section>
 

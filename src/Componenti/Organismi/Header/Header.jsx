@@ -160,6 +160,12 @@ useEffect(()=>{
             >
               {copy.header[6]}
             </li>
+            <li
+              className="menu-item"
+              onClick={() => handleNavigate("/cerca")}
+            >
+              Cerca
+            </li>
           </ul>
         </div>
       )}

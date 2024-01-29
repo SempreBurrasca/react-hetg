@@ -10,11 +10,12 @@ import { AcademicsSezione } from "../Componenti/Sezioni/AcademicsSezione/Academi
 import { CorsiSezione } from "../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import "./academic-avenues.scss";
 import { AllFacolta } from "../Componenti/Sezioni/AllFacolta/AllFacolta";
+import { Helmet } from "react-helmet";
 
 export function AcademicAvenues() {
   const navigate = useNavigate();
   const [copy, setCopy] = React.useState(null);
-  const [links, setLinks] =  React.useState({
+  const [links, setLinks] = React.useState({
     piattaforma: "#",
     xcom: "#",
     instagram: "#",
@@ -58,6 +59,10 @@ export function AcademicAvenues() {
   }
   return (
     <main id="academic-avenues">
+      <Helmet>
+        <title>Unicampus HETG</title>
+        <meta name="description" content="Unicampus HETG" />
+      </Helmet>
       <section className="hero-section">
         <PlusIcon style={{ gridColumn: 2, gridRow: 2 }} />
         <PlusIcon style={{ gridColumn: 7, gridRow: 2 }} />
@@ -93,7 +98,7 @@ export function AcademicAvenues() {
           {copy.academics[0]}
         </Button>
       </div>
-      <AllFacolta/>
+      <AllFacolta />
       <VAE />
 
       <FormDiContatto />

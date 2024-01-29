@@ -16,7 +16,7 @@ export function CorsiList(props) {
   const [copy,setCopy]=useState(null);
 
   useEffect(() => {
-    fetch('https://unicampushetg.ch/copy/copy.json')
+    fetch('/copy/copy.json')
       .then(response => response.json())
       .then(data => {
         setCopy(data.it.corsiList); 

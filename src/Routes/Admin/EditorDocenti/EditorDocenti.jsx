@@ -43,6 +43,7 @@ export function EditorDocenti(props) {
   const [nomeCognome, setNomeCognome] = useState([" ", " "]);
   const [ruolo, setRuolo] = useState("");
   const [titolo,setTitolo]=useState("")
+  const [presides,setPresides]=useState("")
   const [descrizione, setDescrizione] = useState("");
   const [tipo, setTipo] = useState("");
   const [open, setOpen] = useState(false);
@@ -62,6 +63,7 @@ export function EditorDocenti(props) {
         setRuolo(docentiData.ruolo || "");
         setDescrizione(docentiData.descrizione || "");
         setTipo(docentiData.tipo || "");
+        setPresides(docentiData.presides || "");
         setImagePreview(docentiData.imageUrl || "");
       } catch (err) {
         console.error("Errore durante il recupero della docenti:", err);
@@ -112,6 +114,9 @@ export function EditorDocenti(props) {
   const handleTitoloChange = (event) => {
     setTitolo(event.target.value);
   };
+  const handlePresidesChange = (event) => {
+    setPresides(event.target.value);
+  };
 
   const handleDescrizoneChange = (event) => {
     setDescrizione(event.target.value);
@@ -127,6 +132,7 @@ export function EditorDocenti(props) {
         nomeCognome: nomeCognome,
         ruolo: ruolo,
         titolo:titolo,
+        presides:presides,
         descrizione: descrizione,
         imageUrl: imagePreview,
       }).then(() => {
@@ -145,6 +151,7 @@ export function EditorDocenti(props) {
                   descrizione: descrizione,
                   titolo:titolo,
                   tipo: tipo,
+                  presides:presides,
                   imageUrl: imagePreview,
                 }
               : f
@@ -212,6 +219,13 @@ export function EditorDocenti(props) {
         fullWidth
         value={titolo}
         onChange={handleTitoloChange}
+        margin="normal"
+      />
+      <TextField
+        label="Preside delle Facoltà (separate da ,)"
+        fullWidth
+        value={presides}
+        onChange={handlePresidesChange}
         margin="normal"
       />
 

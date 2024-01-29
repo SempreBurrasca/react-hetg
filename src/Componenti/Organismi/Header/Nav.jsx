@@ -39,10 +39,7 @@ export function Nav(props) {
               >
                 {copy.header[4]}{" "}
               </li>
-              <li
-                className="menu-item"
-                onClick={() => navigate("/vae-form")}
-              >
+              <li className="menu-item" onClick={() => navigate("/vae-form")}>
                 {copy.header[10]}{" "}
               </li>
               <li
@@ -59,9 +56,7 @@ export function Nav(props) {
               </li>
               <li
                 className="menu-item"
-                onClick={() =>
-                  navigate("/student-central/staff-management")
-                }
+                onClick={() => navigate("/student-central/staff-management")}
               >
                 {copy.header[9]}
               </li>
@@ -69,6 +64,7 @@ export function Nav(props) {
                 {copy.header[5]}
               </li>
             </ul>
+            <a onClick={() => navigate("/cerca")}>Cerca</a>
           </div>
         </div>
         <img className="top-right-angle" src={ComponentAngle} />

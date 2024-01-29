@@ -18,6 +18,7 @@ import {
   Chip,
   FormControl,
   InputLabel,
+  Switch,
 } from "@mui/material";
 
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -62,7 +63,7 @@ export function EditorCorsi(props) {
   const [paragrafoDocenti, setParagrafoDocenti] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [selectedFacoltas, setSelectedFacoltas] = useState([]);
-
+  const [notDownload, setNotDownload] = useState(false);
   const [open, setOpen] = useState(false);
   const [feed, setFeed] = useState("");
   const theme = useTheme();
@@ -111,6 +112,7 @@ export function EditorCorsi(props) {
           setParagrafoDocenti(corsoData.paragrafoDocenti || "");
           setSelectedFacoltas(corsoData.facoltas || []);
           setImagePreview(corsoData.imageUrl || "");
+          setNotDownload(corsoData.notDownload || false);
           // Aggiungi qui altri campi se necessario
         } else {
           // Gestisci il caso in cui il corso non esiste o non viene trovato
@@ -174,6 +176,7 @@ export function EditorCorsi(props) {
       paragrafoDocenti: paragrafoDocenti,
       facoltas: selectedFacoltas,
       imageUrl: imagePreview,
+      notDownload: notDownload,
     };
 
     try {
@@ -269,7 +272,12 @@ export function EditorCorsi(props) {
           margin="normal"
         >
           Upload Immagine
-          <VisuallyHiddenInput type="file"  accept="image/gif, image/jpeg, image/png" name="myFile"  onChange={handleImageChange} />
+          <VisuallyHiddenInput
+            type="file"
+            accept="image/gif, image/jpeg, image/png"
+            name="myFile"
+            onChange={handleImageChange}
+          />
         </Button>
         {imagePreview && (
           <Box margin="normal">
@@ -284,6 +292,19 @@ export function EditorCorsi(props) {
             />
           </Box>
         )}
+        <br />
+        <br />
+        <Typography variant="body" gutterBottom>
+          Nascondere download piano di studi
+        </Typography>
+        <Switch
+          checked={notDownload}
+          onChange={(e) => {
+            setNotDownload(e.target.checked);
+            console.log(e.target.checked)
+          }}
+          inputProps={{ "aria-label": "controlled" }}
+        />
         <TextField
           label="Titolo Hero"
           fullWidth
@@ -359,7 +380,7 @@ export function EditorCorsi(props) {
           value={lista4Contenuto}
           onChange={(e) => setLista4Contenuto(e.target.value)}
         />
-         <TextField
+        <TextField
           label="Lista 5 Titolo"
           fullWidth
           value={lista5Titolo}
@@ -372,7 +393,6 @@ export function EditorCorsi(props) {
           value={lista5Contenuto}
           onChange={(e) => setLista5Contenuto(e.target.value)}
         />
-       
 
         <TextField
           label="Titolo Docenti"

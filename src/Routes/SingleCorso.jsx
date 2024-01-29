@@ -112,8 +112,8 @@ export function SingleCorso() {
       <Striscia />
       <section id="info-section">
         <div className="content">
-        <h2>{corso.titleHero}</h2>
-        <p className="page-subtitle">{corso.paragrafoHero}</p>
+          <h2>{corso.titleHero}</h2>
+          <p className="page-subtitle">{corso.paragrafoHero}</p>
           <h2>Moduli e Contenuti</h2>
           <p>
             <TestoConAcapo testo={corso.paragrafoDescrizione} />
@@ -154,14 +154,19 @@ export function SingleCorso() {
             )}
             <div className="divider" />
             <div className="button-container">
-             {!corso.notDownload&& <Button
-                borderradius="bottom-left-radius top-left-radius bottom-right-radius top-right-radius"
-                path={"/uploads/corsi/"+corso.id+".pdf"}
-                angleposition={{ overTopRight: false, underBottomRight: false }}
-                isExternal
-              >
-                Download Piano di studi
-              </Button>}
+              {!corso.notDownload && (
+                <Button
+                  borderradius="bottom-left-radius top-left-radius bottom-right-radius top-right-radius"
+                  path={"/uploads/corsi/" + corso.id + ".pdf"}
+                  angleposition={{
+                    overTopRight: false,
+                    underBottomRight: false,
+                  }}
+                  isExternal
+                >
+                  Download Piano di studi
+                </Button>
+              )}
             </div>
           </div>
         </div>

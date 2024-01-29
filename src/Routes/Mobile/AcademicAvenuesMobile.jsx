@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
 import { Button } from "../../Componenti/Molecole/Buttons/Button";
 import { Striscia } from "../../Componenti/Molecole/Striscia/Striscia";
-import { FacultyCarousel } from "../../Componenti/Organismi/FacultyCarousel/FacultyCarousel";
-import { coursessData, partnersData } from "../../assets/data";
 import { useNavigate } from "react-router-dom";
 import "../academic-avenues.scss";
-import { CoursesCarousel } from "../../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-import { getPagina } from "../../Firebase/RecuperoCopy";
 import { Loader } from "../../Componenti/Organismi/Loader/Loader";
 import { FormDiContatto } from "../../Componenti/Sezioni/Form/FormDiContatto";
 import { VAE } from "../../Componenti/Sezioni/VAE/VAE";
 import { AcademicsSezione } from "../../Componenti/Sezioni/AcademicsSezione/AcademicsSezione";
 import { CorsiSezione } from "../../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import { AllFacolta } from "../../Componenti/Sezioni/AllFacolta/AllFacolta";
+import { Helmet } from "react-helmet";
 
 export function AcademicAvenuesMobile() {
   const navigate = useNavigate();
@@ -39,6 +36,10 @@ export function AcademicAvenuesMobile() {
   }
   return (
     <main id="academic-avenues-m">
+      <Helmet>
+        <title>HETG - Offerta Formativa</title>
+        <meta name="description" content="HETG - Offerta Formativa" />
+      </Helmet>
       <section className="hero-section">
         <h1 className="page-title">
           <strong>{copy.hero[0]}</strong> <br />

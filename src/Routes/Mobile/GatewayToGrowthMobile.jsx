@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import { Button } from "../../Componenti/Molecole/Buttons/Button";
 import { Striscia } from "../../Componenti/Molecole/Striscia/Striscia";
-import { CoursesCarousel } from "../../Componenti/Molecole/CoursesCarousel/CoursesCarousel";
-import { coursessData, partnersData } from "../../assets/data";
 import { useNavigate } from "react-router-dom";
-import { getPagina } from "../../Firebase/RecuperoCopy";
 import { Loader } from "../../Componenti/Organismi/Loader/Loader";
-
 import "./mobile.scss";
 import { VAE } from "../../Componenti/Sezioni/VAE/VAE";
 import { CorsiSezione } from "../../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import { OrientamentoSezione } from "../../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
+import { Helmet } from "react-helmet";
 
 export function GatewayToGrowthMobile() {
   const navigate = useNavigate();
@@ -37,13 +34,15 @@ export function GatewayToGrowthMobile() {
   }
   return (
     <main id="gateway-growth-m">
+      <Helmet>
+        <title>Unicampus HETG</title>
+        <meta name="description" content="Unicampus HETG" />
+      </Helmet>
       <section className="hero-section">
         <h1 className="page-title">
-        <strong>{copy.hero[0]}</strong> <i>{copy.hero[1]}</i>
+          <strong>{copy.hero[0]}</strong> <i>{copy.hero[1]}</i>
         </h1>
-        <p className="page-subtitle">
-        {copy.hero[2]}
-        </p>
+        <p className="page-subtitle">{copy.hero[2]}</p>
         <Button
           style={{ position: "absolute", bottom: "3rem", left: "1rem" }}
           angleposition={{
@@ -59,7 +58,7 @@ export function GatewayToGrowthMobile() {
       <section id="about-section-m">
         <h2>{copy.about[0]}</h2>
         <p>
-        <strong>{copy.about[1]}</strong>
+          <strong>{copy.about[1]}</strong>
           <br />
           {copy.about[2]}
           <br /> <br />
@@ -87,12 +86,12 @@ export function GatewayToGrowthMobile() {
       </section>
 
       <Striscia />
-      <OrientamentoSezione/>
+      <OrientamentoSezione />
       <Striscia />
 
-      <VAE/>
+      <VAE />
 
-      <CorsiSezione/>
+      <CorsiSezione />
       <div className="divider" />
     </main>
   );

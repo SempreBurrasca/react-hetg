@@ -30,7 +30,8 @@
         transition: 0.3s ease-in-out all;
       }
       div.menu {
-        display: initial;
+        display: flex;
+        flex-direction: column;
         transition: 0.3s ease-in-out all;
         ul {
           display: flex;
@@ -45,6 +46,15 @@
               font-size: 12px;
             }
           }
+        }
+        a{
+          margin-top: 8px;
+          text-align: center;
+          background-color: white;
+          color: black;
+          border-radius: 8px;
+          padding: 10px 16px;
+          cursor: pointer;
         }
       }
     }

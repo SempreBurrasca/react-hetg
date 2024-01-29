@@ -4,7 +4,8 @@ import "./all-facolta.scss";
 import { getFacoltas } from "../../../Firebase/RecuperoCopy";
 import { Loader } from "../../Organismi/Loader/Loader";
 
-export function AllFacolta() {
+export function AllFacolta(props) {
+  const { isSearchable,search } = props;
   const navigate = useNavigate();
   const [copy, setCopy] = useState(null);
   const [faculties, setFaculties] = useState([]);
@@ -43,13 +44,38 @@ export function AllFacolta() {
   if (!copy) {
     return <Loader />;
   }
-
+  if (isSearchable) {
+    return (
+      <section id="all-facolta-section">
+        {faculties.length > 0 &&
+          faculties.filter(f => f.heroTitle.toLowerCase().includes(search.toLowerCase()))
+          .map((f) => (
+            <div
+              key={f.id}
+              className="list-facolta"
+              onClick={() => navigate("/facolta/" + f.id)}
+            >
+              <h3>{f.heroTitle}</h3>
+              <p>{f.infoParagraph}</p>
+              <a onClick={() => navigate("/facolta/" + f.id)}>
+                {copy.testoLink}
+              </a>
+              <div className="divider-red" />
+            </div>
+          ))}
+      </section>
+    );
+  }
   return (
     <section id="all-facolta-section">
       <h2>{copy.titoloSezione}</h2>
       {faculties.length > 0 &&
         faculties.map((f) => (
-          <div key={f.id} className="list-facolta" onClick={() => navigate("/facolta/" + f.id)}>
+          <div
+            key={f.id}
+            className="list-facolta"
+            onClick={() => navigate("/facolta/" + f.id)}
+          >
             <h3>{f.heroTitle}</h3>
             <p>{f.infoParagraph}</p>
             <a onClick={() => navigate("/facolta/" + f.id)}>{copy.testoLink}</a>

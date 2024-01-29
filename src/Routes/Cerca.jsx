@@ -4,20 +4,23 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./contattaci.scss";
 import { Loader } from "../Componenti/Organismi/Loader/Loader";
-import { Form } from "../Componenti/Organismi/Form/Form";
 import { Helmet } from "react-helmet";
+import TextField from '@mui/material/TextField';
+import { AllFacolta } from "../Componenti/Sezioni/AllFacolta/AllFacolta";
 
-export function Orientamento() {
+export function Cerca() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [copy, setCopy] = React.useState(null);
-  const [links, setLinks] =  React.useState({
+  const [links, setLinks] = React.useState({
     piattaforma: "#",
     xcom: "#",
     instagram: "#",
     facebook: "#",
     linkedin: "#",
   });
+  const [cerca, setCerca] = React.useState('');
+
   useEffect(() => {
     fetch("/copy/copy.json")
       .then((response) => {
@@ -34,7 +37,7 @@ export function Orientamento() {
         console.error("Error fetching the copy data:", error);
       });
 
-      fetch("/copy/copy.json")
+    fetch("/copy/copy.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -54,33 +57,26 @@ export function Orientamento() {
     return <Loader />;
   }
   return (
-    <main id="contattaci">
-       <Helmet>
-        <title>Orientamento</title>
-        <meta name="description" content="Orientamento" />
+    <main id="cerca">
+      <Helmet>
+        <title>Cerca</title>
+        <meta name="description" content="Cerca" />
       </Helmet>
       <section className="hero-section">
         <div className="spacer" />
-        <div>
-          <h2 className="section-title">{copy.content[0]}</h2>
-          <p>{copy.content[1]}</p>
-        </div>
-        <Form />
-        {!isMobile && (
-          <Button
-            style={{ position: "absolute", bottom: "3rem", left: "1rem" }}
-            angleposition={{
-              overTopLeft: true,
-              underBottomLeft: true,
-            }}
-            borderradius="bottom-right-radius top-right-radius"
-            path="linktree"
-          >
-            {copy.content[2]}
-          </Button>
-        )}
+        <h2 className="section-title">Cerca il tuo percorso formativo</h2>
+        <p>
+          Utilizza la barra di ricerca sottostante per trovare rapidamente la
+          facoltà desiderata. La ricerca è intuitiva e ti
+          aiuterà a navigare facilmente tra le diverse opzioni disponibili.
+        </p>
+        <TextField id="outlined-basic" label="Cerca..." variant="outlined" value={cerca}  onChange={(e) => {
+          setCerca(e.target.value);
+        }}/>
+    
       </section>
-
+      <AllFacolta isSearchable search={cerca}/>
+      <div style={{paddingTop:"50px"}}/>
       <div className="divider" />
     </main>
   );

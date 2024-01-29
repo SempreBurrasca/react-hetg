@@ -16,6 +16,7 @@ import "./staff-management.scss";
 import { CorsiSezione } from "../Componenti/Sezioni/CorsiSezione/CorsiSezione";
 import { OrientamentoSezione } from "../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
 import arrow_right from "../assets/arrow-right.png";
+import { Helmet } from "react-helmet";
 
 export function StaffManagement() {
   const navigate = useNavigate();
@@ -137,6 +138,10 @@ export function StaffManagement() {
 
   return (
     <main id="staff-management">
+       <Helmet>
+        <title>Staff & Management</title>
+        <meta name="description" content="Staff & Management" />
+      </Helmet>
       <section className="hero-section">
         <PlusIcon style={{ gridColumn: 2, gridRow: 2 }} />
         <PlusIcon style={{ gridColumn: 7, gridRow: 2 }} />
@@ -263,8 +268,22 @@ export function StaffManagement() {
       <section className="staff-section">
         <h2>Presidi di Facoltà</h2>
         <div className="cards-container">
-          {docenti
-            .filter((person) => person.ruolo?.includes("Preside della Facoltà"))
+          {[...docenti]
+            .filter((person) => person.presides)
+            .sort((a, b) => {
+              const presidesA = a.presides
+                .split(",")
+                .map((word) => word.trim())
+                .sort()
+                .join(" ");
+              const presidesB = b.presides
+                .split(",")
+                .map((word) => word.trim())
+                .sort()
+                .join(" ");
+
+              return presidesA.localeCompare(presidesB);
+            })
             .map((person) => (
               <div className="staff-wrapp">
                 <div
@@ -289,11 +308,11 @@ export function StaffManagement() {
                     fontSize: "12px",
                   }}
                 >
-                  {person.ruolo
-                    .split("-")
-                    .find((r) => r.includes("Preside della Facoltà"))
-
-                    .trim()}
+                  {person.presides
+                    .split(",")
+                    .map((word) => word.trim())
+                    .sort((a, b) => a.localeCompare(b))
+                    .join(" ")}
                 </span>
               </div>
             ))}

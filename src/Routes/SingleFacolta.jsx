@@ -17,6 +17,7 @@ import { VAE } from "../Componenti/Sezioni/VAE/VAE";
 import { OrientamentoSezione } from "../Componenti/Sezioni/OrientamentoSezione/OrientamentoSezione";
 import { TestoConAcapo } from "../Componenti/Molecole/TestoACapo/TestoAcapo";
 import arrow_right from "../assets/arrow-right.png";
+import { Helmet } from "react-helmet";
 
 export function SingleFacolta() {
   const navigate = useNavigate();
@@ -105,6 +106,10 @@ export function SingleFacolta() {
 
   return (
     <main id="single-facolta">
+      <Helmet>
+        <title>{facolta.heroTitle}</title>
+        <meta name="description" content={facolta.heroTitle} />
+      </Helmet>
       <section
         className="hero-section"
         style={{ backgroundImage: "url(" + facolta.imageUrl + ")" }}

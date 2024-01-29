@@ -41,6 +41,7 @@ import { Linktree } from "./Routes/Linktree";
 import { LavoraConNoi } from "./Routes/LavoraConNoi";
 import { Accreditamento } from "./Routes/Accreditamento";
 import { UniAmericana } from "./Routes/UniAmericana";
+import { Cerca } from "./Routes/Cerca";
 
 function App() {
   const location = useLocation();
@@ -84,6 +85,7 @@ function App() {
           <Route path="/contattaci" element={<Contattaci />} />
           <Route path="/collabora" element={<LavoraConNoi />} />
           <Route path="/orientamento" element={<Orientamento />} />
+          <Route path="/cerca" element={<Cerca />} />
           <Route path="/ammissione" element={<Ammissione />} />
           <Route path="/vae-form" element={<Vae />} />
           <Route path="/accreditamento" element={<Accreditamento />} />
